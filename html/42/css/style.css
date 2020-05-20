@@ -1,0 +1,36 @@
+html {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: lightblue;
+}
+
+
+h1 {
+    color: darkgreen;
+    text-align: justify;
+}
+
+.navigation a{
+  color: darkgreen;  
+
+}
+
+#Welcome{
+    font-size: 2em;
+    color: darkgreen;
+    font-weight: bold;
+}
+
+.menuList{
+    color: dodgerblue;
+    background-color: lightyellow;
+}
+
+.menuList a{
+    color: dodgerblue;
+}
+
+.menuList img{
+    height: 4em;
+}
+
+
