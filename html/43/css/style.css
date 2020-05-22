@@ -52,8 +52,9 @@ img{
     height: 300px;
     font-weight: bold;
     text-shadow: 2px 2px gold;
+    max-height: auto;
     text-align: center;
-    overflow: hidden;
+    overflow: auto;
     border-bottom: none;
     letter-spacing: 1px;
     background-image: url(../images/woodBackground.jpg);
