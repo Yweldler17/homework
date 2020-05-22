@@ -18,6 +18,7 @@ h1 {
     font-size: 2em;
     color: darkgreen;
     font-weight: bold;
+    border: 1px solid blue;
 }
 
 .menuList{
