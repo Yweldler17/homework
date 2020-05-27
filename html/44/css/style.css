@@ -10,6 +10,7 @@ html {
 body{
     max-width: 85%;
     margin: auto;
+    background: rgba(0, 0, 0, 0.7);
 }
 
 h1 {
@@ -61,21 +62,21 @@ img{
 }
 
 .navigation{
-    font-size: 3em;
+    font-size: 2.5em;
     text-align: center;
     margin: 0%;
     margin-left: -90px;
     padding-right: 10px;
-    width: 30%;
+    width: 20%;
     position: fixed;
     top: 0;
 }
 
 .menuList{
     height: 30%;
-    width: 50%;
+    width: 65%;
     margin: auto;
-    font-size: 1em;
+    font-size: 1.5em;
 }
 
 
@@ -103,8 +104,13 @@ img{
     border: 2px solid rgb(163, 3, 3);
     height: 5em;   
 }
-.menuItem{
+
+.menuItem {
     text-align: center;
+}
+.menuItem p{
+    color: rgb(167, 66, 36);
+    font-weight: bold;
 }
 
 .menuItem img{
