@@ -30,10 +30,10 @@ a{
 }
 
 .info p{
-    color:black;
-    font-size: 1.8em;
     text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
     font-weight: bold;
+    font-size: 3em;
+    color: rgb(167, 66, 36);
 }
 
 p{
@@ -85,7 +85,6 @@ img{
     border: 3px solid black;
     margin: auto;
     font-weight: bold;
-    text-shadow: 0px;
     text-align: center;
     text-align-last: left;
     overflow: auto;
