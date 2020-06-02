@@ -5,6 +5,7 @@ html{
 
 body{
     max-width: 85%;
+    min-width: 400px;
     margin: auto;
     background-color: white;
 }
