@@ -152,7 +152,9 @@ table{
     margin-top: 2em;
     color: rgb(167, 66, 36);;
     table-layout: fixed;
-    width: 100%;
+    width: 70%;
+    margin-right: auto;
+    margin-left: auto;
 }
 
 caption, .events h3{
@@ -164,10 +166,28 @@ caption{
     margin-bottom: .5em;
 }
 
+thead{
+    text-decoration: underline;
+}
+
 td, th{
     border: 1px solid rgb(167, 66, 36);
     padding: 0.5rem;
     background-color: rgba(0, 0, 0, 0.7);
+    font-size: 1.2em;
+}
+
+tfoot td{
+    border-bottom: double 8px;
+}
+
+td:hover{
+    text-decoration: underline wavy;
+}
+
+
+tbody tr:nth-child(even) {
+    background-color: rgba(217, 106, 74);
 }
 
 .signature {
