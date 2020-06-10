@@ -23,6 +23,7 @@ h1 {
 h1::first-letter{
     color: rgb(167, 66, 36);
     font-size: 1.4em;
+    font-style: italic;
 }
 
 a:hover{
