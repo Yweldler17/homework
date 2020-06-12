@@ -1,0 +1,268 @@
+html {
+    font-family: 'Cinzel', 'Exo 2', sans-serif;
+    background: url(../images/grill3.jpg) no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+body{
+    max-width: 85%;
+    margin: auto;
+    background: rgba(0, 0, 0, 0.7);
+    margin-bottom: 1.5em;
+}
+
+h1 {
+    color: black;
+    font-size: 4em;
+    text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
+}
+
+h1::first-letter{
+    color: rgb(167, 66, 36);
+    font-size: 1.4em;
+    font-style: italic;
+}
+
+a:hover{
+    color: rgb(167, 66, 36);
+    cursor: pointer;
+}
+
+a{
+    color:black;
+    text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
+    text-decoration: none;
+}
+
+.info p{
+    text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
+    font-weight: bold;
+    font-size: 3em;
+    color: rgb(167, 66, 36);
+}
+
+.info img{
+    height: 350px;
+    margin: 30px;
+}
+
+p{
+    color:black;
+    font-size: 1.8em;
+}
+
+.main, .info{
+    text-align: center;   
+}
+
+.main p{
+    font-size: 3em;
+    color: rgb(167, 66, 36);
+}
+
+.main img{
+    max-width: 650px;
+    border: 4px solid black;
+    margin: auto;
+    width: 50%;
+    display: block;
+}
+
+img{
+    max-width: 80%;
+}
+
+.navigation{
+    font-size: 2.5em;
+    text-align: center;
+    margin: 0%;
+    margin-left: -90px;
+    padding-right: 10px;
+    width: 20%;
+    position: fixed;
+    top: 0;
+}
+
+.menuList{
+    width: 65%;
+    margin: auto;  
+}
+
+
+.menuList p{
+    color: rgb(167, 66, 36);
+    border: 3px solid black;
+    margin: auto;
+    font-weight: bold;
+    text-align: center;
+    text-align-last: left;
+    overflow: auto;
+    border-bottom: none;
+    letter-spacing: 2px;
+    background-image: url(../images/woodBackground.jpg); 
+}
+
+.menuList img{
+    float: right;
+    margin: 10px 20px;
+    border: 2px solid rgb(163, 3, 3);
+    height: 5em;   
+}
+
+.menuItem {
+    text-align: center;
+}
+.menuItem p{
+    color: rgb(167, 66, 36);
+    font-weight: bold;
+}
+
+.menuItem img{
+    border: 4px solid rgb(163, 3, 3);
+}
+
+video { 
+    height: 20em;
+    border: 1px solid rgb(167, 66, 36);
+    margin-bottom: 50px;
+}
+
+footer {
+    color: rgb(167, 66, 36);
+    font-size: 2em;
+    position: fixed;
+    top: 35px;
+    right: 1%;
+    border-radius: 50%;
+    height: 4em;
+    width: 4em;
+    padding: .5em;
+    box-sizing: border-box;
+    background-image: url(../images/favicon_io/android-chrome-192x192.png);
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+table{
+    margin-top: 2em;
+    color: rgb(167, 66, 36);;
+    table-layout: fixed;
+    width: 70%;
+    margin-right: auto;
+    margin-left: auto;
+    border-collapse: collapse;
+}
+
+caption, .events h3{
+    font-size: 2.5em;
+    color: rgb(167, 66, 36);
+}
+
+caption{
+    margin-bottom: .5em;
+}
+
+thead{
+    text-decoration: underline;
+}
+
+td, th{
+    border: 1px solid rgb(167, 66, 36);
+    padding: 0.5rem;
+    background-color: rgba(0, 0, 0, 0.7);
+    font-size: 1.2em;
+}
+
+tfoot td{
+    border-bottom: double 8px;
+}
+
+td:hover{
+    text-decoration: underline wavy;
+}
+
+
+tbody tr:nth-child(even) {
+    background-color: rgba(217, 106, 74);
+}
+
+.signature {
+    margin: auto;
+    color: rgb(167, 66, 36);
+    position: absolute;
+    top: 5px;
+    left: 40%;
+    size: 50px;
+}
+
+img+a:hover{
+    cursor: url(../images/fork15.png), auto;
+}
+
+.info:not(.events):hover{
+    background: rgb(199,176,169);
+    background: radial-gradient(circle, rgba(199,176,169,0.65) 7%, rgba(105,60,46,0.48) 38%, 
+    rgba(164,92,15,0.51) 57%, rgba(167,66,36,0.58) 79%);
+}
+
+
+@media screen and (max-width: 799px) {
+    h1{
+        font-size: 2em;  
+    }
+
+    footer, .info p, p{
+        font-size: 1.6em;
+    }
+
+    video{
+        height: 15em;
+    }
+
+    .navigation{
+        font-size: 1.8em;
+    }
+}
+
+.feedback{
+    text-align: center;
+
+}
+
+form{
+    text-align: center;
+}
+
+label, .feedback{
+    color: white;
+    font-size: 2em;
+    text-shadow: -3px 0 rgb(167, 66, 36), 0 3px rgb(167, 66, 36), 3px 0 rgb(167, 66, 36), 0 -3px rgb(167, 66, 36);
+}
+
+input, label{
+    display: block;
+    padding: 1em;
+    margin: auto;
+    
+}
+
+input{
+    color: rgb(167, 66, 36);
+}
+
+#comments{
+    height: 8em;
+    width: 20%;
+}
+
+#submit{
+    padding: 2em;
+    width: 20%;
+    margin-top: 2em;
+    border: solid 3px rgb(167, 66, 36);
+}

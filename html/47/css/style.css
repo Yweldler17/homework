@@ -155,6 +155,7 @@ table{
     width: 70%;
     margin-right: auto;
     margin-left: auto;
+    border-collapse: collapse;
 }
 
 caption, .events h3{
