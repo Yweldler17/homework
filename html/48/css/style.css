@@ -8,7 +8,7 @@ html {
 }
 
 body{
-    max-width: 85%;
+    max-width: 60%;
     margin: auto;
     background: rgba(0, 0, 0, 0.7);
     margin-bottom: 1.5em;
@@ -79,7 +79,7 @@ img{
     font-size: 2.5em;
     text-align: center;
     margin: 0%;
-    margin-left: -90px;
+    margin-left: -280px;
     padding-right: 10px;
     width: 20%;
     position: fixed;
@@ -87,7 +87,7 @@ img{
 }
 
 .menuList{
-    width: 65%;
+    width: 95%;
     margin: auto;  
 }
 
@@ -108,7 +108,7 @@ img{
 .menuList img{
     float: right;
     margin: 10px 20px;
-    border: 2px solid rgb(163, 3, 3);
+    border: 2px solid rgb(167, 66, 36);
     height: 5em;   
 }
 
@@ -135,7 +135,7 @@ footer {
     font-size: 2em;
     position: fixed;
     top: 35px;
-    right: 1%;
+    right: 8%;
     border-radius: 50%;
     height: 4em;
     width: 4em;
@@ -152,7 +152,7 @@ table{
     margin-top: 2em;
     color: rgb(167, 66, 36);;
     table-layout: fixed;
-    width: 70%;
+    width: 85%;
     margin-right: auto;
     margin-left: auto;
     border-collapse: collapse;
@@ -258,6 +258,7 @@ input{
 #comments{
     height: 8em;
     width: 20%;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 #submit{
