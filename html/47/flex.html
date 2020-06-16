@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        article {
+            border: 1px solid red;
+            /*overflow: auto;*/
+
+            display: flex;
+            /*display: inline-flex;*/
+
+            /*flex-direction: column;*/
+            /*flex-direction: column-reverse;*/
+
+            /*flex-wrap: wrap;*/
+            height: 300px;
+
+            justify-content: center;
+            /*justify-content: space-evenly;*/
+
+            align-items: center;
+            /*align-items: flex-start;*/
+            /*align-items: baseline;*/
+        }
+
+        section {
+            border: 1px solid blue;
+            /*float: left;*/
+
+            /*flex-grow: 1;*/
+        }
+
+        /*article:after {
+            content: "";
+            display: block;
+            clear: left;
+        }*/
+
+        section:nth-child(2) {
+            font-size: 2em;
+        }
+
+        .box {
+            width: 75px;
+            height: 75px;
+            border: 1px solid black;
+            background-color: yellow;
+
+            display: flex;
+            /*justify-content: center;
+            align-items: center;*/
+        }
+
+        .box p {
+            margin: auto;
+        }
+
+        section:nth-child(4) {
+            align-self: stretch;
+            /*flex-grow: 2;*/
+            /*flex-shrink: 0;*/
+            /*flex-basis: 100px;*/
+            flex: 1 1 100px;
+            flex: 100px;
+            order: -1;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Flexbox</h1>
+    </header>
+    <hr>
+    <article>
+        <section>
+            <h1>1</h1>
+            <div>Im a flex item</div>
+            <img src="images/PastramiBurger.jpg" alt="Pastrami Burger">
+        </section>
+        <section>
+            <h1>2</h1>
+            <div>Im a flex item</div>
+        </section>
+        <section>
+            <h1>3</h1>
+            <div>Im a flex item</div>
+        </section>
+        <section>
+            <h1>4</h1>
+            <div>Im a flex item</div>
+        </section>
+        <section>
+            <h1>5</h1>
+            <div>Im a flex item</div>
+        </section>
+        <section>
+            <h1>6</h1>
+            <div>Im a flex item</div>
+        </section>
+        <section>
+            <h1>7</h1>
+            <div>Im a flex item</div>
+        </section>
+        <section>
+            <h1>8</h1>
+            <div>Im a flex item</div>
+        </section>
+    </article>
+
+    <div class="box">
+        <p>Hi</p>
+    </div>
+</body>
+
+</html>
