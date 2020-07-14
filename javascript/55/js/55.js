@@ -38,6 +38,8 @@ function myEvery(ourArray, callback) {
     return result;
 }
 
+
+
 //Question 2. Write your own version of the built in array "some" function
 function mySome(ourArray, callback) {
     let result = false;
