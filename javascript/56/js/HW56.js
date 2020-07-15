@@ -26,17 +26,17 @@ const interestCalc = (function () {
 
     return {
         setRate: function (rate) {
-            if (Number.isInteger(rate)) {
+            if (Number.isInteger(rate) && rate > 0) {
                 interestRate = rate;
             }
         },
         setYears: function (timePeriod) {
-            if (Number.isInteger(timePeriod)) {
+            if (Number.isInteger(timePeriod) && timePeriod > 0) {
                 years = timePeriod;
             }
         },
         setCompound: function (compoundAmnt) {
-            if (Number.isInteger(compoundAmnt)) {
+            if (Number.isInteger(compoundAmnt) && compoundAmnt > 0) {
                 compound = compoundAmnt;
             }
         },
@@ -56,5 +56,6 @@ interestCalc.setRate(7);
 interestCalc.setYears(12);
 interestCalc.setCompound(6);
 console.log(interestCalc.calculateInterest(1000));
+
 
 
