@@ -1,0 +1,14 @@
+html {
+
+}
+
+.navigation{
+    font-size: 2.5em;
+    text-align: center;
+    margin: 0%;
+    margin-left: -280px;
+    padding-right: 10px;
+    width: 20%;
+    position: fixed;
+    top: 0;
+}
