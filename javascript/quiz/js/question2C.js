@@ -5,8 +5,8 @@
         window.app.counter.addOne();
     }
 
-    const counter1 = window.app.createCounter.getCounter();
-    const counter2 = window.app.createCounter.getCounter();
+    const counter1 = window.app.createCounter();
+    const counter2 = window.app.createCounter();
 
     for (let i = 0; i < 5; i++) {
         counter1.addOne();
