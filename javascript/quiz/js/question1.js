@@ -1,9 +1,11 @@
+// SL - nice
 //Question 1. Create map Function
 (function () {
     'use strict';
 
     const myMap = function (theArray, callback) {
         let callbackArray = [];
+        // SL - Why not use forEach? no real difference though, just cooler...
         for (let i = 0; i < theArray.length; i++) {
             callbackArray.push(callback(theArray[i]));
         }
@@ -26,11 +28,11 @@
     console.log(testArray);
     const doubledArray = myMap(testArray, doubleNum);
     console.log(doubledArray);
-    const doubledArray2 = myMap(doubledArray, doubleNum);
+    /*const doubledArray2 = myMap(doubledArray, doubleNum);
     console.log(doubledArray2);
     const addedForty = myMap(testArray, addForty);
     console.log(addedForty);
-    console.log(testArray);
+    console.log(testArray);*/
 
 }());
 

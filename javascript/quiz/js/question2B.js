@@ -1,3 +1,4 @@
+// SL - nice
 window.app = (function (myCounter) {
     'use strict';
     let numOfCounters = 0;
