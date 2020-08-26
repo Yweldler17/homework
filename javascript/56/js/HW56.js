@@ -62,5 +62,3 @@ console.log(interestCalc.calculateInterest(1000));
 
 console.log(interestCalc.setRate(7).setYears(20).setCompound(4).calculateInterest(350));
 
-
-

@@ -1,0 +1,19 @@
+.container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+}
+
+.container div{
+    height: 100%;
+    width:  33%;
+}
+
+
+.div1 {
+    background-color: blue;
+}
+
+.div2 {
+    background-color: chocolate;
+}
