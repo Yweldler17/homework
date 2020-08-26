@@ -24,7 +24,7 @@
     contactForm.reset();
     setCss(contactForm, 'display', 'none');
   }
-  let contactsCounter = 0;
+
   contactForm.addEventListener('submit', e => {
     e.preventDefault();
 
@@ -39,7 +39,7 @@
       last: lastInput.value,
       email: emailInput.value,
       phone: phoneInput.value
-    }
+    };
 
     contacts.push(newContact);
     const myNewButton = document.createElement('button');
