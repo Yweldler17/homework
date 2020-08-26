@@ -1,7 +1,6 @@
 (function () {
     'use strict';
 
-    let rowCounter = 0;
     let intervalId;
 
     function getColors() {
@@ -34,7 +33,6 @@
 
     const manualChange = get('theButton');
     const autoChange = get('theButton2');
-    const colorsTable = get('colors');
 
     manualChange.addEventListener('click', () => setColors());
     autoChange.addEventListener('click', () => {
@@ -48,15 +46,7 @@
         }
     });
 
-    colorsTable.addEventListener('click', (event) => {
-        if (event.target.nodeName.toUpperCase() === 'TD') {
-            setRowColor(get(event.target.parentNode.id));
-        }
-    });
-
-
     function addColorsInfo(textColor, bgColor) {
-        rowCounter++;
         const colorsTable = get('colors');
         const newRow = colorsTable.insertRow();
         const timeCell = newRow.insertCell();
@@ -66,12 +56,10 @@
         timeCell.innerHTML = now.toLocaleString();
         textColorCell.innerHTML = textColor;
         bgColorCell.innerHTML = bgColor;
-        newRow.id = 'Row ' + rowCounter;
-    }
-
-    function setRowColor(row) {
-        setCss(row, 'color', row.cells[1].innerHTML);
-        setCss(row, 'backgroundColor', row.cells[2].innerHTML);
+        newRow.addEventListener('click', () => {
+            setCss(newRow, 'color', textColor);
+            setCss(newRow, 'backgroundColor', bgColor);
+        });
     }
 
 }());
