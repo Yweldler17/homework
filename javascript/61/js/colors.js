@@ -51,7 +51,6 @@
     colorsTable.addEventListener('click', (event) => {
         if (event.target.nodeName.toUpperCase() === 'TD') {
             setRowColor(get(event.target.parentNode.id));
-            console.log(event.target.parentNode.id);
         }
     });
 
