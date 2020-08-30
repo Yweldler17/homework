@@ -13,29 +13,24 @@ window.yWeldUtils.messageBox = (function () {
         document.body.removeChild(msgBox);
     }
 
-    function show(msg, buttonList, callBack) {
+    function show(msg, buttonList = ['OK'], callBack) {
         const messageBox = document.createElement('div');
         const p = document.createElement('p');
         const buttons = document.createElement('div');
         const okButton = document.createElement('button');
 
+        for (let i = 0; i < buttonList.length; i++) {
+            const myButton = document.createElement('button');
+            myButton.id = 'button' + i;
+            myButton.innerHTML = buttonList[i];
+            buttons.appendChild(myButton);
 
-        if (buttonList && buttonList.length > 0) {
-            for (let i = 0; i < buttonList.length; i++) {
-                const myButton = document.createElement('button');
-                myButton.id = 'button' + i;
-                myButton.innerHTML = buttonList[i];
-                buttons.appendChild(myButton);
-
-                myButton.addEventListener('click', () => {
-                    removeBox(messageBox);
-                    callBack(buttonList[i]);
-                });
-            }
-        } else {
-            okButton.innerHTML = 'OK';
-            buttons.appendChild(okButton);
+            myButton.addEventListener('click', () => {
+                removeBox(messageBox);
+                callBack(buttonList[i]);
+            });
         }
+
         p.innerHTML = msg;
         messageBox.appendChild(p);
         messageBox.appendChild(buttons);
