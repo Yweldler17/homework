@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MsgBox</title>
+    <link href="css/style.css" rel="stylesheet" />
+</head>
+
+<body>
+    <div id="inputBox">
+        <input id="msgText" />
+        <button id="addMsg">add</button>
+    </div>
+    <script src="js/msgBox.js"></script>
+    <script>
+        /*yWeldUtils.messageBox.show('This is a test of the emergency broadcast system');
+        yWeldUtils.messageBox.show('This is a test of the emergency broadcast system');*/
+
+        const buttonList = ['Yes', 'No', 'Sometimes', 'Ice Cream'];
+        const msgTextInput = document.getElementById('msgText');
+        const callBack = function buttonCallback(buttonMsg) {
+            console.log("Question: " + msgTextInput.value);
+            console.log("Answer: " + buttonMsg);
+        }
+        document.getElementById('addMsg').addEventListener('click', () => {
+            yWeldUtils.messageBox.show(msgTextInput.value, buttonList, callBack);
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,15 @@
+#inputBox{
+    text-align: center;
+    margin: auto;
+    margin-top: 5em;
+    width: 80%;
+}
+
+#inputBox input{
+    width: 30em;
+    font-size: 1.5em;
+}
+
+#addMsg{
+    font-size: 1.5em;
+} 

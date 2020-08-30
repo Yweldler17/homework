@@ -42,13 +42,7 @@
     };
 
     contacts.push(newContact);
-    const myNewButton = document.createElement('button');
-    myNewButton.innerHTML = 'Delete Contact';
-    myNewButton.addEventListener('click', (e) => {
-      //contactsTable.deleteRow(e.target.id);
-      contactsTable.deleteRow(e.target.parentNode.parentNode.rowIndex);
 
-    });
     /*firstInput.value = '';
     lastInput.value = '';
     emailInput.value = '';
@@ -61,6 +55,14 @@
     const emailCell = newRow.insertCell();
     const phoneCell = newRow.insertCell();
     const deleteButtonCell = newRow.insertCell();
+
+    const myNewButton = document.createElement('button');
+    myNewButton.innerHTML = 'Delete Contact';
+    myNewButton.addEventListener('click', () => {
+      //contactsTable.deleteRow(e.target.id);
+      contactsTable.deleteRow(newRow.rowIndex);
+
+    });
 
     firstCell.innerHTML = newContact.first;
     lastCell.innerHTML = newContact.last;
