@@ -13,7 +13,7 @@ window.yWeldUtils.messageBox = (function () {
         document.body.removeChild(msgBox);
     }
 
-    function show(msg, buttonList = ['OK'], callBack) {
+    function show(msg, buttonList = ['OK'], callBack = undefined) {
         const messageBox = document.createElement('div');
         const p = document.createElement('p');
         const buttons = document.createElement('div');

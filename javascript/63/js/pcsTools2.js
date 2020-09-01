@@ -1,0 +1,72 @@
+window.pcs = function (id) {
+  'use strict';
+
+  function get(id) {
+    return document.getElementById(id);
+  }
+
+  function setCss(element, property, value) {
+    element.style[property] = value;
+  }
+
+  function getCss(element, property) {
+    //return element.style[property];
+    return getComputedStyle(element)[property];
+  }
+
+  function getColors() {
+    let rndmColors = [];
+    for (let i = 0; i < 3; i++) {
+      rndmColors.push(Math.floor(Math.random() * 255));
+    }
+    return rndmColors;
+  }
+
+  function getRgb(rgbArray) {
+    return 'rgb(' + rgbArray[0] + ',' + rgbArray[1] + ',' + rgbArray[2] + ')';
+  }
+
+  function setColors(element, property) {
+    setCss(element, property, getRgb(getColors()));
+  }
+
+  const theElem = get(id);
+
+  return {
+    /*setCss: (property, value) => setCss(theElem, property, value),
+    getCss: property => getCss(theElem, property),*/
+    css: function (property, value) {
+      if (arguments.length < 2) { // get
+        return getCss(theElem, property);
+      }
+      setCss(theElem, property, value);
+      return this;
+    },
+    click: function (callback) {
+      theElem.addEventListener('click', callback);
+      return this;
+    },
+    hide: function () {
+      setCss(theElem, 'display', 'none');
+      return this;
+    },
+    show: function () {
+      setCss(theElem, 'display', 'block');
+      return this;
+    },
+    rndmColors: function (property, length, speed) {
+      let intervalId;
+      let counter = 0;
+      function changeColors() {
+        setColors(theElem, property);
+        counter++;
+        if (counter === length) {
+          clearInterval(intervalId);
+          intervalId = null;
+        }
+      }
+      intervalId = setInterval(changeColors, speed);
+    }
+
+  };
+};
