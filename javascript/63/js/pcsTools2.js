@@ -30,6 +30,7 @@ window.pcs = function (id) {
     setCss(element, property, getRgb(getColors()));
   }
 
+  let dataList = new Map();
   const theElem = get(id);
 
   return {
@@ -66,7 +67,13 @@ window.pcs = function (id) {
         }
       }
       intervalId = setInterval(changeColors, speed);
+    },
+    data: function (key, value) {
+      if (arguments.length > 1) {
+        dataList.set(key, value);
+      } else {
+        return console.log(dataList.get(key));
+      }
     }
-
   };
 };
