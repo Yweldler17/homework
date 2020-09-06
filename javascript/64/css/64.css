@@ -1,0 +1,29 @@
+#contactForm {
+    text-align: center;
+    background-color: lightblue;
+    padding: 1em;
+    box-sizing: border-box;
+    width: 27em;
+    height: 10em;
+    margin: auto;
+    margin-top: 5em;
+}
+.formGroup {
+    margin-bottom: .5em;
+}
+
+.formGroup label {
+    width: 5em;
+    display: inline-block;
+}
+
+.infoBox {
+    text-align: center;
+    background-color: lightblue;
+    padding: 1em;
+    box-sizing: border-box;
+    width: 60%;
+    height: 10em;
+    margin: auto;
+    margin-top: 5em;
+}

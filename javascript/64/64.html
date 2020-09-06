@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="css/64.css" rel="stylesheet" />
+</head>
+
+<body>
+    <form id="contactForm">
+        <div class="formGroup">
+            <label for="first">First:</label>
+            <input id="first">
+        </div>
+        <div class="formGroup">
+            <label for="last">Last:</label>
+            <input id="last" required>
+        </div>
+        <div class="formGroup">
+            <label for="address">Address:</label>
+            <input id="address" required>
+        </div>
+        <div class="formGroup">
+            <label for="email">Email:</label>
+            <input id="email" type="email">
+        </div>
+        <div class="formGroup">
+            <label for="phone">Phone:</label>
+            <input id="phone">
+        </div>
+        <input type="checkbox" id="allowSubmit">
+        <input type="submit" value="Submit" id="submit" />
+    </form>
+    <div class="infoBox">
+        <h2>Welcome!</h2>
+        <h4 id="msgDisplay"></h4>
+        <p id="accountInfo"></p>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.js"
+        integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+    <script src="js/64.js"></script>
+</body>
+</body>
+
+</html>

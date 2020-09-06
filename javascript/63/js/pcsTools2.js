@@ -55,18 +55,11 @@ window.pcs = function (id) {
       setCss(theElem, 'display', 'block');
       return this;
     },
-    rndmColors: function (property, length, speed) {
-      let intervalId;
-      let counter = 0;
-      function changeColors() {
-        setColors(theElem, property);
-        counter++;
-        if (counter === length) {
-          clearInterval(intervalId);
-          intervalId = null;
-        }
-      }
-      intervalId = setInterval(changeColors, speed);
+    rndmColors: function (property = 'color', length = 1000, speed = 500) {
+      const intervalId = setInterval(() => setColors(theElem, property), speed);
+      setTimeout(() => {
+        clearInterval(intervalId);
+      }, length);
     },
     data: function (key, value) {
       if (arguments.length > 1) {
