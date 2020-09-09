@@ -25,12 +25,7 @@
     border: 2px solid black;
 }
 
-.infoBox p {
-    border: 2px solid black;
-}
-
 #fileInfo {
-    
     white-space: pre;
     text-align: left;
     background-color: white;

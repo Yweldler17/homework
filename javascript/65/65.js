@@ -30,6 +30,7 @@
             fileInput.val('');
             loadSpinner.hide();
             submitButton.prop('disabled', true);
+            displayFile.css('border', '2px solid black');
         }, 2000);
     });
 
