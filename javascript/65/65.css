@@ -1,0 +1,56 @@
+#fileForm {
+    text-align: center;
+    border: 2px solid black;
+    background-color: lightgray;
+    padding: 1em;
+    box-sizing: border-box;
+    width: 40em;
+    height: 5em;
+    margin: auto;
+    margin-top: 5em;
+}
+
+.chooseFile {
+    margin-top: 12px;
+}
+
+.infoBox {
+    text-align: center;
+    background-color: lightgray;
+    padding: 1em;
+    box-sizing: border-box;
+    width: 60%;
+    margin: auto;
+    margin-top: 10em;
+    border: 2px solid black;
+}
+
+.infoBox p {
+    border: 2px solid black;
+}
+
+#fileInfo {
+    
+    white-space: pre;
+    text-align: left;
+    background-color: white;
+}
+
+.loader {
+    border: 16px solid lightgrey; 
+    border-top: 16px solid black; 
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    animation: spin 2s linear infinite;
+    margin-top: 2em;
+    position: absolute;
+    right: 48%;
+    display: none;
+  }
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+  
