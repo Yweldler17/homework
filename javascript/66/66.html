@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipe</title>
+    <link href="style/66.css" rel="stylesheet" />
+</head>
+
+<body>
+    <header>
+        <h1>Recipe List</h1>
+    </header>
+    <div id="selectionBar">
+        <label for="recipes">Choose a recipe:</label>
+
+        <select name="recipes" id="recipes">
+            <option value="Chocolate Cake">Chocolate Cake</option>
+            <option value="Chicken Soup">Chicken Soup</option>
+            <option value="Scrambled Eggs">Scrambled Eggs</option>
+            <option value="Hot Dogs">Hot Dogs</option>
+        </select>
+        <button id="submit">Submit</button>
+    </div>
+    <div class="infoBox">
+        <h2>Recipe</h2>
+        <h4 id="recipeName"></h4>
+        <img id="recipeImg" src="" alt="">
+        <ol id="ingredients">
+
+        </ol>
+
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.js"
+        integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+    <script src="js/66.js"></script>
+</body>
+
+</html>

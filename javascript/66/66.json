@@ -1,0 +1,54 @@
+[
+    {
+        "name": "Chocolate Cake",
+        "img": "images/chocolateCake.jpg",
+        "ingredients": [
+            "Flour",
+            "Sugar",
+            "Cocoa Powder",
+            "Baking Soda",
+            "Baking Powder",
+            "Salt",
+            "Eggs",
+            "Warm Water",
+            "Vegetable Oil",
+            "Vanilla Extract"
+        ]
+    },
+    {
+        "name": "Chicken Soup",
+        "img": "images/chickenSoup.jpg",
+        "ingredients": [
+            "Chicken",
+            "Squash",
+            "Carrot",
+            "Parsnip",
+            "Chicken Bones",
+            "Salt",
+            "Potato"
+        ]
+    },
+    {
+        "name": "Scrambled Eggs",
+        "img": "images/scrambledEggs.jpg",
+        "ingredients": [
+            "Eggs",
+            "Butter",
+            "Milk",
+            "Mozzarella Cheese",
+            "Salt",
+            "Fried Onions"
+        ]
+    },
+    {
+        "name": "Hot Dogs",
+        "img": "images/hotDog.jpg",
+        "ingredients": [
+            "Hot Dogs",
+            "Hot Dog Buns",
+            "Ketchup",
+            "Baked Beans",
+            "Fried Onions"
+        ]
+    }
+]

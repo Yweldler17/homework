@@ -1,0 +1,46 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+
+header {
+    background-color: darkslategrey;
+    width: 100%;
+    height: 6em;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+header h1 {
+    color: floralwhite;
+    font-size: 5em;
+}
+
+.infoBox img {
+    width: 15em;
+}
+
+.infoBox {
+    margin: auto;
+    width: 60%;
+    text-align: center;
+    background-color: darkslategrey;
+    color: floralwhite;
+    font-size: 2em;
+}
+
+#selectionBar {
+    text-align: center;
+    font-size: 2em;
+    padding: 1em;
+}
+
+#selectionBar select, #submit{
+    font-size: 1em;
+    color: darkslategrey;
+}
+
+#ingredients {
+    list-style: none;
+}
