@@ -1,0 +1,56 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+
+header {
+    background-color: darkslategrey;
+    width: 100%;
+    height: 6em;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+header h1 {
+    color: floralwhite;
+    font-size: 5em;
+}
+
+iframe {
+    width: 100%;
+    height: 40em;
+    margin: auto;
+    align-self: center;
+}
+
+.player {
+    text-align: center;
+}
+
+.sidebar {
+   height: 900px;
+}
+
+.sidebar ul {
+    text-align: center;
+    font-size: 2em;
+    border: 2px solid darkslategrey;
+    color: darkslategrey;
+    margin: 1em;
+    list-style: none;
+    overflow-y: scroll;
+    overflow-x: hidden;
+
+}
+
+.sidebar img {
+    height: 4em;
+}
+
+main {
+    margin-top: 2em;
+    display: grid;
+    grid-template-columns: 1fr 3fr 1fr;
+    
+}
