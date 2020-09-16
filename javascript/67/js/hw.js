@@ -28,16 +28,12 @@
                     return r.json();
                 })
                 .then(v => {
-                    let thumbnail;
-                    if (v.poster.length < 1) {
-                        thumbnail = $(`<li><p>${v.name}</p><img src="media/defaultVideo.jpg" alt=""></li>`)
-                    } else {
-                        thumbnail = $(`<li><p>${v.name}</p><img src=${v.poster} alt=""></li>`)
-                    }
-                    thumbnail.click(() => {
-                        videoPlayer.empty();
-                        videoPlayer.attr('src', v.url);
-                    })
+                    let thumbnail = v.poster || "media/defaultVideo.jpg";
+                    $(`<li><p>${v.name}</p><img src=${thumbnail} alt=""></li>`)
+                        .click(() => {
+                            videoPlayer.empty();
+                            videoPlayer.attr('src', v.url);
+                        })
                         .appendTo(videoList);
 
                 })
