@@ -14,7 +14,6 @@
             return r.json();
         })
         .then(videos => {
-            console.log(videos);
             displayVideos(videos);
         })
         .catch((err) => console.error(err));
@@ -31,7 +30,6 @@
                 .then(v => {
                     let thumbnail;
                     if (v.poster.length < 1) {
-                        console.log("Yes!!!");
                         thumbnail = $(`<li><p>${v.name}</p><img src="media/defaultVideo.jpg" alt=""></li>`)
                     } else {
                         thumbnail = $(`<li><p>${v.name}</p><img src=${v.poster} alt=""></li>`)
