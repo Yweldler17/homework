@@ -28,11 +28,8 @@ iframe {
     text-align: center;
 }
 
-.sidebar {
-   height: 900px;
-}
-
 .sidebar ul {
+    height: 600px;
     text-align: center;
     font-size: 2em;
     border: 2px solid darkslategrey;

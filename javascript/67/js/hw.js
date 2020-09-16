@@ -29,12 +29,17 @@
                     return r.json();
                 })
                 .then(v => {
-                    $(`<li><p>${v.name}</p><img src="media/defaultVideo.jpg" alt=""></li>`)
-                        .click(() => {
-                            videoPlayer.empty();
-                            videoPlayer.attr('src', v.url).play();
-                            //videoPlayer[0].play();
-                        })
+                    let thumbnail;
+                    if (v.poster.length < 1) {
+                        console.log("Yes!!!");
+                        thumbnail = $(`<li><p>${v.name}</p><img src="media/defaultVideo.jpg" alt=""></li>`)
+                    } else {
+                        thumbnail = $(`<li><p>${v.name}</p><img src=${v.poster} alt=""></li>`)
+                    }
+                    thumbnail.click(() => {
+                        videoPlayer.empty();
+                        videoPlayer.attr('src', v.url);
+                    })
                         .appendTo(videoList);
 
                 })
