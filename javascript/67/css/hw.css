@@ -27,18 +27,20 @@ iframe {
 .player {
     text-align: center;
 }
-
+.sidebar {
+    
+}
 .sidebar ul {
-    height: 600px;
+    height: 639px;
     text-align: center;
     font-size: 2em;
     border: 2px solid darkslategrey;
     color: darkslategrey;
-    margin: 1em;
+    margin: .8em;
+    margin-top: 0;
     list-style: none;
     overflow-y: scroll;
     overflow-x: hidden;
-
 }
 
 .sidebar img {

@@ -35,7 +35,6 @@
                             videoPlayer.attr('src', v.url);
                         })
                         .appendTo(videoList);
-
                 })
                 .catch((err) => console.error(err));
         });
