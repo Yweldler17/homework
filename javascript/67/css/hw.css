@@ -27,9 +27,7 @@ iframe {
 .player {
     text-align: center;
 }
-.sidebar {
-    
-}
+
 .sidebar ul {
     height: 639px;
     text-align: center;
@@ -50,6 +48,5 @@ iframe {
 main {
     margin-top: 2em;
     display: grid;
-    grid-template-columns: 1fr 3fr 1fr;
-    
+    grid-template-columns: 1fr 3fr 1fr;   
 }
