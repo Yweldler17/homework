@@ -11,6 +11,7 @@
     const imgDetails = $('#imgDetails');
     const previous = $('#previous');
     const next = $('#next');
+    const imageNum = $('#imageNum');
 
     $(document).ready(() => {
         search();
@@ -65,6 +66,7 @@
         largeImage.attr('src', img.media.m);
         largeImage.data('image', img);
         largeImage.data('position', spot);
+        imageNum.text(spot + 1);
         updateInfo();
     }
 
