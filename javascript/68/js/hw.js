@@ -37,13 +37,11 @@
                 let imageArray = pictureData.items;
                 imageList.empty();
                 if (imageArray.length < 1) {
-                    imageList.data('imageArray', defaultImage);
                     setDefault(defaultImage, 0);
                 } else {
                     next.prop('disabled', false);
                     previous.prop('disabled', false);
                     imageList.data('imageArray', pictureData.items);
-                    console.log(pictureData.items.length);
                     setMainImg(pictureData.items[0], 0);
                     for (let i = 0; i < pictureData.items.length; i++) {
                         $(`<li><img src=${pictureData.items[i].media.m} alt=""></li>`)
@@ -82,7 +80,6 @@
         imageNum.text(0);
         imageInfo.text('');
     }
-
 
     imgDetails.change(() => {
         updateInfo();
