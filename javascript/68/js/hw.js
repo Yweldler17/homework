@@ -34,21 +34,23 @@
         let searchWord = searchBox.val();
         $.getJSON(`https://api.flickr.com/services/feeds/photos_public.gne?tags=${searchWord}&format=json&jsoncallback=?`)
             .then(pictureData => {
-                let imageArray = pictureData.items;
+                //add  || default.
+                let imageArray = pictureData.items || defaultImage;
                 imageList.empty();
-                if (imageArray.length < 1) {
-                    setDefault(defaultImage, 0);
-                } else {
-                    next.prop('disabled', false);
-                    previous.prop('disabled', false);
-                    imageList.data('imageArray', pictureData.items);
-                    setMainImg(pictureData.items[0], 0);
-                    for (let i = 0; i < pictureData.items.length; i++) {
-                        $(`<li><img src=${pictureData.items[i].media.m} alt=""></li>`)
-                            .click(() => setMainImg(pictureData.items[i], i))
-                            .appendTo(imageList);
-                    }
+                console.log(imageArray);
+                /*if (imageArray.length < 1) {
+                    setDefault();
+                } else {*/
+                next.prop('disabled', false);
+                previous.prop('disabled', false);
+                imageList.data('imageArray', imageArray);
+                setMainImg(imageArray[0], 0);
+                for (let i = 0; i < imageArray.length; i++) {
+                    $(`<li><img src=${imageArray[i].media.m} alt=""></li>`)
+                        .click(() => setMainImg(imageArray[i], i))
+                        .appendTo(imageList);
                 }
+                //}
             })
             .catch(e => console.error(e));
     }
@@ -69,6 +71,7 @@
         largeImage.attr('src', img.media.m.slice(0, -6) + '.jpg');
         largeImage.data('image', img);
         largeImage.data('position', spot);
+        console.log(largeImage);
         imageNum.text(spot + 1);
         updateInfo();
     }
@@ -89,6 +92,5 @@
         let choice = imgDetails.find(":selected").val();
         imageInfo.text(largeImage.data('image')[choice]);
     }
-
 
 }());

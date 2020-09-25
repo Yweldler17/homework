@@ -73,20 +73,20 @@ main {
     width: 30px;
 }
 
-
-
 .mainImage {
     padding: 0%;
     max-height: 25em; 
     position: relative;
     border: 2px solid rgb(60, 168, 168);
     background-color: rgb(76, 71, 71);
+    overflow: hidden;
 }
 
 #largeImage {
     width: 100%;
     height: 25em;
     object-fit: contain;    
+    
 }
 
 #searchBar {
@@ -166,4 +166,5 @@ main {
     overflow-x: hidden;
     border: 2px solid rgb(76, 71, 71);
 }
+
 
