@@ -35,22 +35,21 @@
         $.getJSON(`https://api.flickr.com/services/feeds/photos_public.gne?tags=${searchWord}&format=json&jsoncallback=?`)
             .then(pictureData => {
                 //add  || default.
-                let imageArray = pictureData.items || defaultImage;
+                let imageArray = pictureData.items;
                 imageList.empty();
-                console.log(imageArray);
-                /*if (imageArray.length < 1) {
+                if (imageArray.length < 1) {
                     setDefault();
-                } else {*/
-                next.prop('disabled', false);
-                previous.prop('disabled', false);
-                imageList.data('imageArray', imageArray);
-                setMainImg(imageArray[0], 0);
-                for (let i = 0; i < imageArray.length; i++) {
-                    $(`<li><img src=${imageArray[i].media.m} alt=""></li>`)
-                        .click(() => setMainImg(imageArray[i], i))
-                        .appendTo(imageList);
+                } else {
+                    next.prop('disabled', false);
+                    previous.prop('disabled', false);
+                    imageList.data('imageArray', imageArray);
+                    setMainImg(imageArray[0], 0);
+                    for (let i = 0; i < imageArray.length; i++) {
+                        $(`<li><img src=${imageArray[i].media.m} alt=""></li>`)
+                            .click(() => setMainImg(imageArray[i], i))
+                            .appendTo(imageList);
+                    }
                 }
-                //}
             })
             .catch(e => console.error(e));
     }
@@ -71,7 +70,6 @@
         largeImage.attr('src', img.media.m.slice(0, -6) + '.jpg');
         largeImage.data('image', img);
         largeImage.data('position', spot);
-        console.log(largeImage);
         imageNum.text(spot + 1);
         updateInfo();
     }
