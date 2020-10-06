@@ -12,7 +12,7 @@
     const weatherInfo = $('#weatherInfo');
     const cityInputBox = $('<input id="cityInputBox" value="" />');
     const zipInputBox = $('<input id="zipInputBox" value="" />');
-    const apiKey = '45f104b299251ab3758428b277ec59c0';
+
     const location = $('#location');
     const cityName = $('#cityName');
     const zipCode = $('#zipCode');
