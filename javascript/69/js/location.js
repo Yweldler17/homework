@@ -86,9 +86,8 @@
             .then(weatherData => {
                 console.log(weatherData);
                 setWeatherInfo(weatherData);
-                //weatherInfo.text(`${weatherData.name}  ${weatherData.weather[0].description}`);
-                let locationLat = weatherData.coord.lat;
-                let locationLon = weatherData.coord.lon;
+                //let locationLat = weatherData.coord.lat;
+                //let locationLon = weatherData.coord.lon;
 
             })
             .catch(err => console.log(err));
@@ -98,21 +97,6 @@
         nameOfCity.text(`${currentWeather.name} Weather`);
         temperature.text(`${currentWeather.main.temp.toFixed(0)}° F`);
         weatherDescription.text(`${currentWeather.weather[0].description}`);
-    }
-
-    function getCityState(lat, lon) {
-        fetch(`http://maps.googleapis.com/maps/api/geocode/json?latlng=${lat},${lon}&sensor=true`)
-            .then(r => {
-                if (!r.ok) {
-                    throw new Error(`${r.status} ${r.statusText}`);
-                }
-                return r.json();
-            })
-            .then(locationInfo => {
-                console.log(locationInfo);
-            })
-            .catch(err => console.log(err));
-
     }
 
     function setSelected(choice) {
