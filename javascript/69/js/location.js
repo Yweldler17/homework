@@ -13,7 +13,7 @@
     const cityInputBox = $('<input id="cityInputBox" value="" />');
     const countryInputBox = $('<input id="countryInputBox" value="US" />');
     const zipInputBox = $('<input id="zipInputBox" value="" />');
-
+    const apiKey = '45f104b299251ab3758428b277ec59c0';
     const location = $('#location');
     const cityName = $('#cityName');
     const zipCode = $('#zipCode');
@@ -22,26 +22,33 @@
     const temperature = $('#temperature');
     const realFeel = $('#realFeel');
     const weatherIcon = $('#weatherIcon');
-    const selectionArray = [location, cityName, zipCode];
-    const boxArray = [locationBox, cityBox, zipBox];
-    //const selectionBar = $('.selectionBar');
+    const detailsButton = $('#detailsButton');
+    const moreDetails = $(`<div id="moreDetails">`);
+    const humidityHead = $(`<h3>Humidity</h3>`);
+    const pressureHead = $(`<h3>Pressure</h3>`);
+    const highTempHead = $(`<h3>High Temp</h3>`);
+    const lowTempyHead = $(`<h3>Low Temp</h3>`);
+    const humidity = $(`<p id="humidity"></p>`);
+    const pressure = $(`<p id="pressure"></p>`);
+    const highTemp = $(`<p id="highTemp"></p>`);
+    const lowTemp = $(`<p id="lowTemp"></p>`);
     const weatherBox = $('.weatherBox');
 
+    const selectionArray = [location, cityName, zipCode];
+    const boxArray = [locationBox, cityBox, zipBox];
+
     locationBox.append(locationButton);
-    cityBox.append(cityButton);
-    cityBox.append(cityInputBox);
-    cityBox.append(countryInputBox);
-    zipBox.append(zipButton);
-    zipBox.append(zipInputBox);
-    weatherBox.append(locationBox);
-    weatherBox.append(cityBox);
-    weatherBox.append(zipBox);
-    weatherBox.append(weatherInfo);
+    cityBox.append(cityButton, cityInputBox, countryInputBox);
+    zipBox.append(zipButton, zipInputBox);
+    moreDetails.append(humidityHead, humidity, pressureHead, pressure, highTempHead, highTemp, lowTempyHead, lowTemp);
+    weatherInfo.append(moreDetails);
+    weatherBox.append(locationBox, cityBox, zipBox, weatherInfo);
 
     locationBox.hide();
     cityBox.hide();
     zipBox.hide();
     weatherInfo.hide();
+    moreDetails.hide();
 
     let lat;
     let lon;
@@ -66,6 +73,7 @@
         getWeather(`zip=${zipInputBox.val()}`);
     });
 
+
     function showPosition(position) {
         lat = position.coords.latitude;
         lon = position.coords.longitude;
@@ -84,8 +92,7 @@
             .then(weatherData => {
                 console.log(weatherData);
                 setWeatherInfo(weatherData);
-                //let locationLat = weatherData.coord.lat;
-                //let locationLon = weatherData.coord.lon;
+                moreDetails.hide();
             })
             .catch(err => console.log(err));
     }
@@ -97,6 +104,17 @@
         temperature.text(`${currentWeather.main.temp.toFixed(0)}° F`);
         realFeel.text(`${currentWeather.main.feels_like.toFixed(0)}° F`);
         weatherIcon.attr('src', `http://openweathermap.org/img/wn/${currentWeather.weather[0].icon}.png`);
+        detailsButton.click(() => {
+            setDetails(currentWeather);
+        });
+    }
+
+    function setDetails(weatherInfo) {
+        moreDetails.show();
+        humidity.text(`${weatherInfo.main.humidity}`);
+        pressure.text(`${weatherInfo.main.pressure}`);
+        highTemp.text(`${weatherInfo.main.temp_max.toFixed(0)}° F`);
+        lowTemp.text(`${weatherInfo.main.temp_min.toFixed(0)}° F`);
     }
 
     function setSelected(choice) {
@@ -114,6 +132,7 @@
             }
         }
         weatherInfo.hide();
+        moreDetails.hide();
     }
 
     function setBox(box) {
@@ -130,6 +149,5 @@
         cityInputBox.val('');
         zipInputBox.val('');
     }
-
 
 }());
