@@ -69,7 +69,7 @@ main {
 }
 
 .selectionBar h3:hover{
-    color: ivory;
+    color: black;
 }
 
 .selectionBar .selectedTab{
