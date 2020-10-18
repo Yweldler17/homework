@@ -14,9 +14,9 @@
     const imageNum = $('#imageNum');
     let defaultImage = "media/default.png";
 
-    $(document).ready(() => {
-        search();
-    });
+    // $(document).ready(() => {
+    //     search();
+    // });
 
     searchButton.click(() => {
         search();
