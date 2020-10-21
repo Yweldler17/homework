@@ -10,6 +10,7 @@ function initMap() {
     const previous = $('#previous');
     const next = $('#next');
     const imageNum = $('#imageNum');
+    const searchNum = $('#rows');
     let defaultImage = "media/default.png";
 
     let lat;
@@ -20,20 +21,24 @@ function initMap() {
     let map;
     let index = 0;
 
+    next.prop('disabled', true);
+    previous.prop('disabled', true);
+
     searchButton.click(() => {
-        fetchWiki(searchBox.val());
+        fetchWiki(searchBox.val(), searchNum.val());
     });
 
     function refreshIndex() {
         map.setCenter({ lat: searchItems[index].lat, lng: searchItems[index].lng });
         map.setZoom(13);
-        imageNum.text(index + 1)
+        imageNum.text(index + 1);
+        resultList[0].children[index].scrollIntoView({ behavior: "smooth", inline: "center" });
     }
 
-    function fetchWiki(searchVal) {
+    function fetchWiki(searchVal, rowNum) {
         clearMap();
         let counter = 0;
-        fetch(`http://api.geonames.org/wikipediaSearchJSON?q=${searchVal}&maxRows=10&username=`)
+        fetch(`http://api.geonames.org/wikipediaSearchJSON?q=${searchVal}&maxRows=${rowNum}&username=ywelder`)
             .then(r => {
                 if (!r.ok) {
                     throw new Error(`${r.status} ${r.statusText}`);
@@ -50,7 +55,6 @@ function initMap() {
                     wikiUrl: item.wikipediaUrl,
                     itemIndex: counter++
                 }));
-                console.log(searchItems);
                 setWiki(searchItems);
             })
             .catch((err) => console.error(err));
@@ -58,10 +62,11 @@ function initMap() {
 
     function setWiki(wikiArray) {
         resultList.empty();
+        next.prop('disabled', false);
+        previous.prop('disabled', false);
         let infoWindow = new google.maps.InfoWindow();
         let bounds = new google.maps.LatLngBounds();
         wikiArray.forEach(item => {
-            console.log(item.itemIndex);
             $(`<li><div><h3>${item.title}</h3><img src=${item.thumbnail || defaultImage} alt="${item.title || ""}"></div></li>`).appendTo(resultList).click(() => {
                 index = item.itemIndex;
                 refreshIndex();
@@ -71,10 +76,10 @@ function initMap() {
                 position: { lat: item.lat, lng: item.lng },
                 map: map,
                 title: item.title,
-                icon: {
+                icon: item.thumbnail ? {
                     url: item.thumbnail,
                     scaledSize: new google.maps.Size(50, 50)
-                }
+                } : null
             });
 
             markerArray.push(marker);
@@ -88,7 +93,6 @@ function initMap() {
             bounds.extend({ lat: item.lat, lng: item.lng });
         });
         map.fitBounds(bounds);
-
     }
 
     navigator.geolocation.getCurrentPosition(getMyMap);
