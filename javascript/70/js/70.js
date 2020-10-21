@@ -23,7 +23,6 @@
     let markerArray = [];
     let index = 0;
     let savedEvents = [];
-    let savedDrawings = [];
     let drawings = [];
     const map = new google.maps.Map(document.getElementById("map"), {
         zoom: 14,
