@@ -24,7 +24,7 @@
     let index = 0;
     let savedEvents = [];
     let savedDrawings = [];
-    let oldDrawings = [];
+    let drawings = [];
     const map = new google.maps.Map(document.getElementById("map"), {
         zoom: 14,
     });
@@ -39,14 +39,10 @@
     });
 
     clearDrawing.click(() => {
-        savedDrawings.forEach(drawing => {
-            drawing.overlay.setMap(null);
-        });
-        savedDrawings = [];
-        oldDrawings.forEach(drawing => {
+        drawings.forEach(drawing => {
             drawing.setMap(null);
         });
-        oldDrawings = [];
+        drawings = [];
         savedEvents = [];
         localStorage.events = [];
     });
@@ -153,7 +149,7 @@
     }
 
     google.maps.event.addListener(drawingManager, 'overlaycomplete', event => {
-        savedDrawings.push(event);
+        drawings.push(event.overlay);
         let eventObject = {};
         if (event.type === 'marker') {
             eventObject = {
@@ -219,7 +215,7 @@
                     map: map
                 });
             }
-            oldDrawings.push(oldDrawing);
+            drawings.push(oldDrawing);
         });
     }
 }());
