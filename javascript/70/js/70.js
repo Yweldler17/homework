@@ -10,6 +10,7 @@
     const searchBox = $('#searchBox');
     const resultList = $('#resultList');
     const previous = $('#previous');
+    const clearDrawing = $('#clearDrawing');
     const next = $('#next');
     const imageNum = $('#imageNum');
     const searchNum = $('#rows');
@@ -22,6 +23,8 @@
     let markerArray = [];
     let index = 0;
     let savedEvents = [];
+    let savedDrawings = [];
+    let oldDrawings = [];
     const map = new google.maps.Map(document.getElementById("map"), {
         zoom: 14,
     });
@@ -33,6 +36,19 @@
 
     searchButton.click(() => {
         fetchWiki(searchBox.val(), searchNum.val());
+    });
+
+    clearDrawing.click(() => {
+        savedDrawings.forEach(drawing => {
+            drawing.overlay.setMap(null);
+        });
+        savedDrawings = [];
+        oldDrawings.forEach(drawing => {
+            drawing.setMap(null);
+        });
+        oldDrawings = [];
+        savedEvents = [];
+        localStorage.events = [];
     });
 
     function refreshIndex() {
@@ -137,6 +153,7 @@
     }
 
     google.maps.event.addListener(drawingManager, 'overlaycomplete', event => {
+        savedDrawings.push(event);
         let eventObject = {};
         if (event.type === 'marker') {
             eventObject = {
@@ -171,36 +188,38 @@
 
     if (localStorage.events) {
         const mapObjects = JSON.parse(localStorage.events);
+        let oldDrawing;
         mapObjects.forEach(element => {
             savedEvents.push(element);
             if (element.type === 'marker') {
-                new google.maps.Marker({
+                oldDrawing = new google.maps.Marker({
                     position: element.location,
                     map: map,
                     animation: google.maps.Animation.DROP
                 });
             } else if (element.type === 'polyline') {
-                new google.maps.Polyline({
+                oldDrawing = new google.maps.Polyline({
                     path: element.pathArray,
                     map: map
                 });
             } else if (element.type === 'rectangle') {
-                new google.maps.Rectangle({
+                oldDrawing = new google.maps.Rectangle({
                     bounds: element.bounds,
                     map: map
                 });
             } else if (element.type === 'circle') {
-                new google.maps.Circle({
+                oldDrawing = new google.maps.Circle({
                     center: element.center,
                     radius: element.radius,
                     map: map
                 });
             } else if (element.type === 'polygon') {
-                new google.maps.Polygon({
+                oldDrawing = new google.maps.Polygon({
                     path: element.pathArray,
                     map: map
                 });
             }
+            oldDrawings.push(oldDrawing);
         });
     }
 }());
