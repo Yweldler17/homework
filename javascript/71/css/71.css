@@ -1,0 +1,92 @@
+html, body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+}
+body {
+    display: grid;
+    grid-template-rows: 3fr 7fr;
+    background: url(../images/background1.jpg) no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    
+}
+#partsBar {
+    width: 100%;
+    bottom: 0;
+    height: 5em;
+    text-align: center;
+    resize: both;
+    background-color:  rgb(76, 71, 71);
+}
+
+img { 
+    cursor: grab; 
+}
+main{
+    height: 100%;
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    justify-content: center;
+    align-items: center;
+    text-align: center;   
+    z-index: -10;
+}
+#helpDiv h1 {
+    color: rgb(76, 71, 71);
+    height: 100%;
+}
+#helpDiv {
+    width: 100%;
+    height: 100%;
+    background-color: rgb(60, 168, 168);
+}
+
+#hideButton, #helpButton{
+    width: 20%;
+    height: 80px;
+    cursor: pointer;
+    border-radius: 5px;
+    background-color: rgb(60, 168, 168);
+    font-size: 3em;
+}
+
+#partsList {
+    list-style: none;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    overflow-y: hidden;
+    overflow-x: auto; 
+    padding: 2px solid  rgb(60, 168, 168);
+}
+
+#partsList li {
+    display: inline;
+    margin-left: 20px;
+}
+
+li img {
+    width: 100px;
+    max-height: 150px;
+}
+
+#controlPanel {
+    display: grid;
+    grid-template-columns: 1fr 4fr 1fr;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 3px solid black;
+    background-color: white;
+}
+
+#musicControl, #searchBar{
+    height: 100%;
+    background-color:  rgb(76, 71, 71);
+    align-content: center;
+}
+
+
+
