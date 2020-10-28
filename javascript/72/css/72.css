@@ -13,21 +13,12 @@ body {
     background-size: cover;
 }
 
-svg {
-    display: block;
-    float: left;
-    width: 280pt;
-    /* height: 240pt; */
-    
-}
-
 #imageBox {
     position: absolute;
     top: 72%;
     left: 0px;
     width: 200px;
-    height: 100px;
-    
+    height: 100px;  
 }
 
 .infoBar{
@@ -51,3 +42,12 @@ svg {
     border: 2px solid rgb(76, 71, 71);
     font-size: 2em;
 }
+
+#color {
+    width: 8%;
+}
+
+#vehicleFactory label, button, input {
+    font-size: 2em;
+}
+
