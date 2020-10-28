@@ -9,7 +9,26 @@
 </head>
 
 <body>
+    <div id="vehicleFactory">
+        <div>
+            <select name="vehicleType" id="vehicleSelect">
+                <option value="car">Car</option>
+                <option value="plane">Plane</option>
+            </select>
+            <label>
+                color: <input type="color" name="color" id="color">
+            </label>
+            <button id="create">Create Vehicle</button>
+        </div>
+        <div>
+            <label for="speed">Choose a speed</label>
+            <input type="number" id="speed" name="speed" min="1" max="180">
+            <button id="goButton">GO!</button>
+        </div>
+    </div>
+    <div id="imageBox">
 
+    </div>
     <script src="https://code.jquery.com/jquery-3.5.1.js"
         integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
     <script src="js/72.js"></script>
