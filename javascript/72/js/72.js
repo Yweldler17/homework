@@ -111,7 +111,7 @@
     });
 
     goButton.click(() => {
-        if (vehicleCreated) {
+        if (vehicleCreated && !moving) {
             if (vehicleType === 'car') {
                 currentSpeed = speedElem.val();
                 newCar.go(currentSpeed);
