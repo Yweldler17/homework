@@ -18,9 +18,7 @@
         for (let i = 0; i < students.length; i++) {
             ({ firstName, lastName } = students[i]);
             if (!first) {
-                let temp = lastName;
-                lastName = firstName;
-                firstName = temp;
+                [firstName, lastName] = [lastName, firstName];
             }
             console.log(`${firstName} ${lastName} is ${students[i].age} years old and has a final grade of ${students[i].grade}`);
         }
