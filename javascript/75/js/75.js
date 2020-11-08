@@ -28,7 +28,7 @@
                     top: messageY,
                     left: messageX,
                 });
-                messageBoxText.text(`Population: ${antHills[i].ants}, Color: ${antHills[i].color}`);
+                messageBoxText.text(`Population: ${antHills[i].ants} Color: ${antHills[i].color} Strength: ${antHills[i].colonyStrength}`);
                 messageBoxText.css({
                     visibility: 'visible'
                 });
@@ -58,7 +58,7 @@
             this.context = context;
             this.rotationNumber = Math.PI / (Math.floor(Math.random() * 20) + 1);
             this.ants = 0;
-            this.clanStrength = 0;
+            this.colonyStrength = 0;
 
             this.draw();
         }
@@ -198,9 +198,13 @@
 
     setInterval(() => {
         context.clearRect(0, 0, canvas.width, canvas.height);
+        antHills.forEach(antHill => {
+            antHill.colonyStrength = 0;
+        });
         ants.forEach(ant => {
             ant.move();
             ant.home.draw();
+            ant.home.colonyStrength += ant.strength;
             checkForOtherAnts(ant);
         });
     }, 100);
