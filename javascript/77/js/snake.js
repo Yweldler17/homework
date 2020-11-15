@@ -90,7 +90,6 @@
                 this.checkForApple();
                 this.checkForWall();
                 this.checkForTail();
-                this.checkSpeed();
                 context.font = 'bold 48px serif';
                 context.fillText(this.score, canvas.width - 120, 50);
             }, 2);
@@ -132,7 +131,7 @@
                 this.tail.forEach((tailPart) => {
                     let checkX = Math.abs(this.x - tailPart.x);
                     let checkY = Math.abs(this.y - tailPart.y);
-                    if (checkX < 30 && checkY < 30) {
+                    if (checkX < 20 && checkY < 20) {
                         this.endGame();
                     }
                 });
