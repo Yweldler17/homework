@@ -4,13 +4,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Snake</title>
     <link href="css/snake.css" rel="stylesheet" href="">
 </head>
 
 <body>
-
-    <canvas id="gameBoard"></canvas>
+    <header>
+        <div id="musicControl">
+            <audio id="player" controls src="audio/0.mp3" type="audio/mp3" autoplay></audio>
+        </div>
+        <h1>Snake</h1>
+        <button id="newGame">New Game</button>
+        <label id="scoreLabel"></label>
+    </header>
+    <main id="mainDiv">
+        <canvas id="gameBoard"></canvas>
+    </main>
     <script src="https://code.jquery.com/jquery-3.5.1.js"
         integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
     <script src="js/snake.js"></script>

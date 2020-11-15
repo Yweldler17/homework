@@ -1,10 +1,16 @@
 (function () {
+
+    /*global $ */
     'use strict';
 
     const canvas = document.getElementById('gameBoard');
     const context = canvas.getContext('2d');
+    const newGameButton = $('#newGame');
+    const scoreLabel = $('#scoreLabel');
+    let playing = false;
     let interval;
     let currentApple;
+    let currentTrack = 0;
 
     function resizeCanvas() {
         canvas.width = window.innerWidth;
@@ -90,8 +96,7 @@
                 this.checkForApple();
                 this.checkForWall();
                 this.checkForTail();
-                context.font = 'bold 48px serif';
-                context.fillText(this.score, canvas.width - 120, 50);
+                // scoreLabel.text(`${this.score}`);
             }, 2);
 
             document.addEventListener('keydown', e => {
@@ -112,12 +117,11 @@
             let highScore = localStorage.highScore || 0;
             if (this.score > highScore) {
                 localStorage.highScore = this.score;
-                context.font = 'bold 48px serif';
-                context.fillText(`Good Game! You Set a New High Score! ${this.score}`, (canvas.width / 2) - 300, 50);
+                setScoreLabel(`Good Game! You Set a New High Score! ${this.score}`);
             } else {
-                context.font = 'bold 48px serif';
-                context.fillText(`Good Game! Your Score is: ${this.score} - High Score: ${localStorage.highScore || 0}`, canvas.width / 3, 50);
+                setScoreLabel(`Good Game! Your Score is: ${this.score} - High Score: ${localStorage.highScore || 0}`);
             }
+            playing = false;
         }
 
         checkForWall() {
@@ -152,9 +156,11 @@
                 this.counter = 0;
                 this.speed++;
             }
+            scoreLabel.text(`${this.score}`);
         }
     }
 
+    const music = document.getElementById("player");
     const appleImage = new Image();
     appleImage.src = 'images/apple.png';
     const snakeHeadimage = new Image();
@@ -165,20 +171,37 @@
     crunch.src = 'audio/crunch.mp3';
     const crash = new Audio();
     crash.src = 'audio/crash.mp3';
-    const backgroundTrack = new Audio();
-    backgroundTrack.src = 'audio/backgroundTrack.mp3';
-    backgroundTrack.muted = true;
-    const snake = new Snake(snakeHeadimage, context, 0, 0);
-    snakeHeadimage.addEventListener('load', () => {
-        snake.moveSnake();
+
+    $("#player").bind("ended", function () {
+        if (currentTrack === 2) {
+            currentTrack = -1;
+        }
+        currentTrack++;
+        music.src = `audio/${currentTrack}.mp3`;
+        music.load();
+        music.play();
     });
+
+    newGameButton.click(() => {
+        if (!playing) {
+            const snake = new Snake(snakeHeadimage, context, 0, 0);
+            snake.moveSnake();
+            playing = true;
+            scoreLabel.css({ width: '10%', fontSize: '2em' });
+        }
+    });
+
+    function setScoreLabel(textInput) {
+        scoreLabel.css({ width: '80%', fontSize: '1.8em' });
+        scoreLabel.text(`${textInput}`);
+    }
 
     function placeApple() {
         return new Apple(appleImage, context, getRandomSpot(canvas.width), getRandomSpot(canvas.height));
     }
 
     function getRandomSpot(maxSize) {
-        return Math.floor(Math.random() * (maxSize - 32));
+        return Math.floor(Math.random() * (maxSize - 64));
     }
 
     function drawBoard(snake, apple) {
