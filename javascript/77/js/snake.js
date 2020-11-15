@@ -54,8 +54,10 @@
             this.y = y;
             this.SNAKE_SIZE = 64;
             this.score = 0;
+            this.counter = 0;
             this.tail = [];
             this.moves = [];
+            this.speed = 1;
         }
 
         moveSnake() {
@@ -73,21 +75,25 @@
 
                 switch (direction) {
                     case 'ArrowLeft':
-                        this.x--;
+                        this.x -= this.speed;
                         break;
                     case 'ArrowRight':
-                        this.x++;
+                        this.x += this.speed;
                         break;
                     case 'ArrowUp':
-                        this.y--;
+                        this.y -= this.speed;
                         break;
                     case 'ArrowDown':
-                        this.y++;
+                        this.y += this.speed;
                         break;
                 }
                 this.checkForApple();
                 this.checkForWall();
-            }, 10);
+                this.checkForTail();
+                this.checkSpeed();
+                context.font = 'bold 48px serif';
+                context.fillText(this.score, canvas.width - 120, 50);
+            }, 2);
 
             document.addEventListener('keydown', e => {
                 switch (e.key) {
@@ -100,11 +106,36 @@
             });
         }
 
+        endGame() {
+            clearInterval(interval);
+            crash.play();
+            drawBoard(this);
+            let highScore = localStorage.highScore || 0;
+            if (this.score > highScore) {
+                localStorage.highScore = this.score;
+                context.font = 'bold 48px serif';
+                context.fillText(`Good Game! You Set a new High Score! ${this.score}`, (canvas.width / 2) - 300, 50);
+            } else {
+                context.font = 'bold 48px serif';
+                context.fillText(`Good Game! Your Score is: ${this.score} The High Score is: ${localStorage.highScore || 0}`, canvas.width / 3, 50);
+            }
+        }
+
         checkForWall() {
             if (this.x < 0 || (this.x + this.SNAKE_SIZE) > canvas.width || this.y < 0 || (this.y + this.SNAKE_SIZE) > canvas.height) {
-                clearInterval(interval);
-                crash.play();
-                drawBoard(this);
+                this.endGame();
+            }
+        }
+
+        checkForTail() {
+            if (this.tail.length > 0) {
+                this.tail.forEach((tailPart) => {
+                    let checkX = Math.abs(this.x - tailPart.x);
+                    let checkY = Math.abs(this.y - tailPart.y);
+                    if (checkX < 30 && checkY < 30) {
+                        this.endGame();
+                    }
+                });
             }
         }
 
@@ -115,7 +146,12 @@
                 crunch.play();
                 currentApple = placeApple();
                 this.score++;
+                this.counter++;
                 this.tail.push(new SnakeTail(tailimage, context, this.moves[0].x, this.moves[0].y));
+            }
+            if (this.counter > 4) {
+                this.counter = 0;
+                this.speed++;
             }
         }
     }
@@ -153,10 +189,12 @@
             apple.draw();
         }
         if (snake.tail.length > 0) {
-            snake.tail[0].setPosition(snake.moves[0].x, snake.moves[0].y);
+            //selecting the spot in array of previous moves to use. As the speed increases, the tail needs to follow closer to the head.
+            let tailProximity = Math.trunc(snake.moves.length - (snake.SNAKE_SIZE / snake.speed));
+            snake.tail[0].setPosition(snake.moves[tailProximity].x, snake.moves[tailProximity].y);
             if (snake.tail.length > 1) {
                 for (let i = 1; i < snake.tail.length; i++) {
-                    snake.tail[i].setPosition(snake.tail[i - 1].moves[0].x, snake.tail[i - 1].moves[0].y);
+                    snake.tail[i].setPosition(snake.tail[i - 1].moves[tailProximity].x, snake.tail[i - 1].moves[tailProximity].y);
                 }
             }
             snake.tail.forEach((tailPart) => {
@@ -171,7 +209,6 @@
             part.moves.shift();
         }
         part.moves.push({ x: part.x, y: part.y });
-
     }
 
 }());
