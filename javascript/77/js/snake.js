@@ -192,7 +192,7 @@
     });
 
     function setScoreLabel(textInput) {
-        scoreLabel.css({ width: '80%', fontSize: '1.8em' });
+        scoreLabel.css({ width: '95%', fontSize: '1.8em' });
         scoreLabel.text(`${textInput}`);
     }
 
