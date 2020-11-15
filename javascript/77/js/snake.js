@@ -113,10 +113,10 @@
             if (this.score > highScore) {
                 localStorage.highScore = this.score;
                 context.font = 'bold 48px serif';
-                context.fillText(`Good Game! You Set a new High Score! ${this.score}`, (canvas.width / 2) - 300, 50);
+                context.fillText(`Good Game! You Set a New High Score! ${this.score}`, (canvas.width / 2) - 300, 50);
             } else {
                 context.font = 'bold 48px serif';
-                context.fillText(`Good Game! Your Score is: ${this.score} The High Score is: ${localStorage.highScore || 0}`, canvas.width / 3, 50);
+                context.fillText(`Good Game! Your Score is: ${this.score} - High Score: ${localStorage.highScore || 0}`, canvas.width / 3, 50);
             }
         }
 
@@ -127,14 +127,14 @@
         }
 
         checkForTail() {
-            if (this.tail.length > 0) {
-                this.tail.forEach((tailPart) => {
-                    let checkX = Math.abs(this.x - tailPart.x);
-                    let checkY = Math.abs(this.y - tailPart.y);
+            if (this.tail.length > 1) {
+                for (let i = 1; i < this.tail.length; i++) {
+                    let checkX = Math.abs(this.x - this.tail[i].x);
+                    let checkY = Math.abs(this.y - this.tail[i].y);
                     if (checkX < 20 && checkY < 20) {
                         this.endGame();
                     }
-                });
+                }
             }
         }
 
@@ -202,7 +202,7 @@
         }
         context.drawImage(snake.image, snake.x, snake.y, snake.SNAKE_SIZE, snake.SNAKE_SIZE);
     }
-
+    // TrackSpots function is used to save the last 64 x and y coordinates of all snake parts (head and tail parts)
     function trackSpots(part) {
         if (part.moves.length > 63) {
             part.moves.shift();
