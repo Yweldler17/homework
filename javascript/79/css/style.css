@@ -9,6 +9,7 @@ html, body{
     margin: 0;
     padding: 0;
     font-family: "Times New Roman", Times, serif;
+    overflow: hidden;
 }
 
 header {
@@ -32,23 +33,51 @@ main {
     margin: 0;
 }
 
+#cardSelector{
+    width: 15%;
+    border: 2px solid black;
+    position: absolute;
+    left: 8%;
+    top: 30%;
+    text-align: center;
+}
+#cardSelector img {
+    width: 100%;
+}
+
+#cardSelector h2 {
+    background-color: rgb(76, 71, 71);
+    color: rgb(60, 168, 168);
+}
+
+#container{
+    position: relative;
+    height: 980px;
+    width: 980px;
+    margin: 0;
+    margin: auto;
+    margin-top: 3%;
+}
+
 #boardBackground{
     margin: 0;
     height: 980px;
     width: 980px;
     margin: auto;
-    margin-top: 3%;
     background-color:  rgb(60, 168, 168);
-    text-align: center;
-    box-sizing: border-box;
+}
+
+#boardBackground, #topBoard {
+    position: absolute;
+    top: 0;
+    left: 0;
 }
 
 #gameboard {
     height: 950px;
     width: 950px;
     margin: auto;
-    position: relative;
-    top: 15px;
+    margin: 1.5%;
     background-color: lightgray;
     display: grid;
     grid-template-columns: repeat(6, 1fr);
@@ -64,12 +93,18 @@ main {
     background-color: white;
 }
 
-#cars {
-    /* background-color: white; */
+
+#topBoard {
     height: 950px;
     width: 950px;
-    position: absolute;
-    top: 170px;
-    left: 794px;
+    /* margin: auto; */
+    margin: 1.5%;
+}
 
+.cars {
+    position: absolute;
+}
+
+#road{
+    z-index: -1;
 }
