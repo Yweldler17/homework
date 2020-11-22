@@ -35,7 +35,6 @@ main {
 
 #cardSelector{
     width: 15%;
-    border: 2px solid black;
     position: absolute;
     left: 8%;
     top: 30%;
@@ -50,20 +49,19 @@ main {
     color: rgb(60, 168, 168);
 }
 
-#container{
-    position: relative;
+#boardBackground, #container {
+    margin: 0;
     height: 980px;
     width: 980px;
-    margin: 0;
     margin: auto;
+}
+
+#container{
+    position: relative;
     margin-top: 3%;
 }
 
-#boardBackground{
-    margin: 0;
-    height: 980px;
-    width: 980px;
-    margin: auto;
+#boardBackground{ 
     background-color:  rgb(60, 168, 168);
 }
 
@@ -74,16 +72,14 @@ main {
 }
 
 #gameboard {
-    height: 950px;
-    width: 950px;
     margin: auto;
-    margin: 1.5%;
     background-color: lightgray;
     display: grid;
     grid-template-columns: repeat(6, 1fr);
     grid-template-rows: repeat(6, 1fr);
     align-items: center;
     justify-items: center;
+    
 }
 
 .boardSquare {
@@ -91,20 +87,35 @@ main {
     width: 80%;
     border: 1px solid rgb(60, 168, 168);
     background-color: white;
+
 }
 
-
-#topBoard {
+#gameboard, #topBoard {
     height: 950px;
     width: 950px;
-    /* margin: auto; */
     margin: 1.5%;
 }
 
 .cars {
     position: absolute;
+    z-index: 3;
+    box-sizing: border-box;
 }
 
 #road{
-    z-index: -1;
+    z-index: 2;
+}
+
+@media screen and (max-width: 2200px) {
+    
+    #container, #boardBackground{
+        height: 550px;
+        width: 550px;
+    }
+    
+    #gameboard, #topBoard {
+        height: 530px;
+        width: 530px;    
+    }
+    
 }

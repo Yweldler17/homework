@@ -1,12 +1,12 @@
-(function () {
+import $ from 'jquery';
 
-    /*global $ */
+(function () {
 
     "use strict";
 
     const gameboard = $('#gameboard');
     const topBoard = $('#topBoard');
-    const SQUARE_SIZE = topBoard.width() / 6;
+    let SQUARE_SIZE = topBoard.width() / 6;
     let cars = [];
     let currentCar;
 
@@ -21,6 +21,35 @@
     const lightGreenCar = $(`<img src="images/lightGreenCar.png" class="cars" width="${SQUARE_SIZE}" height="${SQUARE_SIZE * 2}" alt="Light Green Car">`);
     const road = $(`<img src="images/road.png" class="cars" id="road" width="${SQUARE_SIZE * 2}" height="${SQUARE_SIZE}" alt="road">`);
 
+
+    function resizeboard() {
+        SQUARE_SIZE = topBoard.width() / 6;
+        cars.forEach((car) => {
+            if (car.squares.length > 2) {
+                switch (car.alignemnt) {
+                    case 'vertical':
+                        car.image.css({ width: SQUARE_SIZE * 3, height: SQUARE_SIZE });
+                        break;
+                    case 'horizontal':
+                        car.image.css({ width: SQUARE_SIZE, height: SQUARE_SIZE * 3 });
+                        break;
+                }
+            } else {
+                switch (car.alignemnt) {
+                    case 'vertical':
+                        car.image.css({ width: SQUARE_SIZE * 2, height: SQUARE_SIZE });
+                        break;
+                    case 'horizontal':
+                        car.image.css({ width: SQUARE_SIZE, height: SQUARE_SIZE * 2 });
+                        break;
+                }
+            }
+            drawBoard(car);
+            road.css({ width: SQUARE_SIZE * 2, height: SQUARE_SIZE, top: 2 * SQUARE_SIZE, left: 6 * SQUARE_SIZE });
+        });
+    }
+    window.addEventListener('resize', resizeboard);
+    resizeboard();
 
     class Vehicle {
         constructor(image, alignment, squares, redCar) {
@@ -108,7 +137,7 @@
         cars.forEach((car) => {
             car.image.css({ border: "none" });
         });
-        currentCar.image.css({ border: '4px solid black' });
+        currentCar.image.css({ border: '4px solid rgb(60, 168, 168)' });
     }
 
     function drawBoard(car) {
