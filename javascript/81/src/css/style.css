@@ -1,0 +1,158 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html, body{
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: "Times New Roman", Times, serif;
+    overflow: hidden;
+}
+
+header {
+    margin: 0;
+    background-color: rgb(76, 71, 71);
+    width: 100%;
+    height: 5em;
+    text-align: center;
+    box-sizing: border-box;
+    border-bottom: 2px solid rgb(60, 168, 168);
+}
+
+header h1 {
+    color: rgb(60, 168, 168);
+    font-size: 4em;
+}
+
+main {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+}
+
+#cardSelector{
+    width: 15%;
+    position: fixed;
+    left: 78%;
+    top: 30%;
+    text-align: center;
+}
+#cardSelector img {
+    width: 100%;
+}
+
+#cardSelector h2 {
+    background-color: rgb(76, 71, 71);
+    color: rgb(60, 168, 168);
+}
+
+#boardBackground, #container {
+    margin: 0;
+    height: 980px;
+    width: 980px;
+    margin: auto;
+}
+
+#container{
+    position: relative;
+    margin-top: 3%;
+    left: -15%;
+}
+
+#boardBackground{ 
+    background-color:  rgb(60, 168, 168);
+}
+
+#boardBackground, #topBoard {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+#gameboard {
+    margin: auto;
+    background-color: lightgray;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: repeat(6, 1fr);
+    align-items: center;
+    justify-items: center;
+    
+}
+
+.boardSquare {
+    height: 80%;
+    width: 80%;
+    border: 1px solid rgb(60, 168, 168);
+    background-color: white;
+
+}
+
+#gameboard, #topBoard {
+    height: 950px;
+    width: 950px;
+    margin: 1.5%;
+}
+
+.cars, .road {
+    position: absolute;
+    z-index: 3;
+    box-sizing: border-box;
+    border: none;
+}
+
+.selected {
+    border: 4px solid rgb(60, 168, 168);
+}
+
+#road{
+    z-index: 2;
+}
+
+.sliderButtons{
+    width: 100%;
+    margin: auto;
+    margin-top: 10px;
+    display: grid;
+    grid-template-columns: 3fr 1fr 3fr;
+    justify-items: center;
+    background-color: white;
+}
+
+.sliderButtons button{
+    background-color: rgb(60, 168, 168);
+    color: rgb(76, 71, 71);
+    font-size: 16px;
+    padding: 12px 24px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    width: 85%;
+    text-align: center;
+}
+
+.sliderButtons h2 {
+    text-align: center;
+    color: rgb(60, 168, 168);
+    border: 1px solid rgb(60, 168, 168);
+    padding: 12px 10px;
+    background-color: rgb(76, 71, 71);
+    width: 30px;
+}
+
+@media screen and (max-width: 2200px) {
+    
+    #container, #boardBackground{
+        height: 550px;
+        width: 550px;
+    }
+    
+    #gameboard, #topBoard {
+        height: 530px;
+        width: 530px;    
+    }
+    
+}
