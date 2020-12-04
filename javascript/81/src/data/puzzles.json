@@ -702,6 +702,101 @@
     },
     {
         "difficulty": "Easy",
+        "level": 8,
+        "cardImage": "./images/easy8.png",
+        "vehicles": [
+            {
+                "image": "./images/grayTruck.png",
+                "width": 1,
+                "height": 3,
+                "alignment": "horizontal",
+                "squares": [
+                    {
+                        "row": 3,
+                        "col": 5
+                    },
+                    {
+                        "row": 4,
+                        "col": 5
+                    },
+                    {
+                        "row": 5,
+                        "col": 5
+                    }
+                ]
+            },
+            {
+                "image": "./images/policeCarH.png",
+                "width": 1,
+                "height": 2,
+                "alignment": "horizontal",
+                "squares": [
+                    {
+                        "row": 0,
+                        "col": 2
+                    },
+                    {
+                        "row": 1,
+                        "col": 2
+                    }
+                ]
+            },
+            {
+                "image": "./images/redCar.png",
+                "width": 2,
+                "height": 1,
+                "alignment": "vertical",
+                "squares": [
+                    {
+                        "row": 2,
+                        "col": 0
+                    },
+                    {
+                        "row": 2,
+                        "col": 1
+                    }
+                ]
+            },
+            {
+                "image": "./images/bus.png",
+                "width": 3,
+                "height": 1,
+                "alignment": "vertical",
+                "squares": [
+                    {
+                        "row": 4,
+                        "col": 2
+                    },
+                    {
+                        "row": 4,
+                        "col": 3
+                    },
+                    {
+                        "row": 4,
+                        "col": 4
+                    }
+                ]
+            },
+            {
+                "image": "./images/blueUpCar.png",
+                "width": 1,
+                "height": 2,
+                "alignment": "horizontal",
+                "squares": [
+                    {
+                        "row": 2,
+                        "col": 2
+                    },
+                    {
+                        "row": 3,
+                        "col": 2
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "difficulty": "Easy",
         "level": 10,
         "cardImage": "./images/easy10.png",
         "vehicles": [

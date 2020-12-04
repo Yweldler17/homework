@@ -124,7 +124,7 @@ function moveVehicle(direction) {
             break;
         case 'ArrowRight':
 
-            if ((currentCar.squares[frontSquare].col < 5 || currentCar.squares[frontSquare].row === 2) && currentCar.alignemnt === 'vertical') {
+            if ((currentCar.squares[frontSquare].col < 5 || currentCar.squares[frontSquare].row === 2) && currentCar.alignemnt === 'vertical' && currentCar.squares[frontSquare].col < 7) {
                 spotTaken = checkForCars(currentCar.squares[frontSquare].row, currentCar.squares[frontSquare].col + 1);
                 if (!spotTaken) {
                     currentCar.squares.forEach((square) => {
