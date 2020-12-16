@@ -1,0 +1,92 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+.recipeList {
+  display: inline-block;
+  margin: 10px;
+}
+
+.recipeList:hover{
+  cursor: pointer;
+  background-color: rgb(132, 218, 218);
+}
+
+.ingrendientsDiv {
+  margin: auto;
+  width: 40%;
+  background-color: darkslategrey;
+}
+
+.ingrendientsDiv img {
+  width: 10em;
+}
+
+.ingredientsList {
+  color: white;
+}
+
+header {
+  background-color: darkslategrey;
+  width: 100%;
+  height: 6em;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+header h1 {
+  color: floralwhite;
+  font-size: 4em;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.currentRecipe{
+  background-color: white;
+  border: 4px solid darkslategrey;
+}
+
+.directionsText {
+  background-color: white;
+  border: 4px solid darkslategrey;
+  text-align: center;
+  padding: 2em;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
