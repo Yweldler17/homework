@@ -2,7 +2,7 @@ import './App.css';
 import React, { Component } from 'react';
 import WeatherDetails from './WeatherDetails';
 import ErrorMessage from './ErrorMessage';
-const apiKey = '45f104b299251ab3758428b277ec59c0';
+const apiKey = 'placeYourKeyHere';
 // const zip = `zip=07055`
 
 class App extends Component {
