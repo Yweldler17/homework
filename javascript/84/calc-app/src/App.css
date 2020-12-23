@@ -1,0 +1,25 @@
+.calc {
+  margin: auto; 
+  text-align: center;
+  margin-top: 8%;
+  width: 50.5%;
+}
+
+.calcRow {
+  width: 100%;
+}
+
+.calcRow button {
+  font-size: 3em;
+  width: 25%;
+  height: 2em;
+}
+
+.calc .calcLabel {
+  width: 100%;
+  height: 1.5em;
+  background-color: black;
+  font-size: 5em;
+  color: white;
+  text-align: right;
+}
