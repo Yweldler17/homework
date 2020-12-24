@@ -66,8 +66,14 @@ export default class App extends Component {
     switch (operation) {
       case '(':
       case ')':
-      case '+/-':
       case '.':
+        break;
+      case '+/-':
+        let currentLabel = this.state.labelVal;
+        this.setState({
+          labelVal: currentLabel * -1,
+        })
+        console.log('here');
         break;
       default:
         let intval = parseInt(this.state.labelVal)
@@ -97,7 +103,7 @@ export default class App extends Component {
             }>Clear</button>
             <CalculatorButton val='(' key='(' clickFunction={this.updateLabel} useOperation={this.useOperation}></CalculatorButton>
             <CalculatorButton val=')' key=')' clickFunction={this.updateLabel} useOperation={this.useOperation}></CalculatorButton>
-            <button>+/-</button>
+            <CalculatorButton val='+/-' key='+/-' clickFunction={this.updateLabel} useOperation={this.useOperation}></CalculatorButton>
           </div>
           <CalculatorRow nums={[7, 8, 9, 'x']} updateLabel={this.updateLabel} useOperation={this.useOperation}></CalculatorRow>
           <CalculatorRow nums={[4, 5, 6, '-']} updateLabel={this.updateLabel} useOperation={this.useOperation}></CalculatorRow>
