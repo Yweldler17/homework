@@ -1,0 +1,82 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html, body{
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: "Times New Roman", Times, serif;
+}
+
+header {
+    background-color: rgb(76, 71, 71);
+    width: 100%;
+    height: 5em;
+    text-align: center;
+    box-sizing: border-box;
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    justify-items: center;
+    border-bottom: 2px solid rgb(60, 168, 168);
+}
+
+header h1 {
+    color: rgb(60, 168, 168);
+    font-size: 4em;
+}
+
+#HomeButtonDiv {
+    text-align: center;
+    align-self: center;  
+    width: 4em; 
+}
+
+#HomeButtonDiv button{
+    width: 100%;
+    height: 30px;
+    cursor: pointer;
+    /* border-radius: 5px; */
+    background-color: rgb(60, 168, 168);
+}
+
+main {
+    height: 100%;
+    width: 80%;
+    margin: auto;
+}
+
+.blogInfo {
+    margin: auto;
+    width: 90%;
+    border: 2px solid  rgb(60, 168, 168);
+    text-align: center;
+    background-color: rgb(112, 212, 212);
+}
+
+.blogInfo:hover {
+    background-color: rgb(141, 182, 182);
+}
+
+.postInfo, .commentDiv {
+    margin: auto;
+    width: 90%;
+    text-align: left;
+    max-height: 15em;
+    overflow: auto;
+    border-left: 3px solid rgb(60, 168, 168);
+    border-right: 3px solid rgb(60, 168, 168);
+}
+
+.posts, .commentDiv {
+    background-color:  rgb(76, 71, 71);
+    color:  rgb(189, 207, 207);
+}
+
+.posts:hover, .commentDiv:hover {
+    background-color:  rgb(107, 102, 102);
+}
+
+
