@@ -1,0 +1,17 @@
+{
+  "id": 2,
+  "name": "Chicken Soup",
+  "ingredients": [
+    "Chicken",
+    "Squash",
+    "Carrot",
+    "Parsnip",
+    "Chicken Bones",
+    "Salt",
+    "Potato"
+  ],
+  "directions": [
+    "Peel all peelable vegetables. Dump everything in a pot of water. Cook for a while. Add water as needed. Dont let it burn out. Eat when hungry."
+  ],
+  "img": "images/chickenSoup.jpg"
+}

@@ -1,0 +1,20 @@
+{
+  "id": 1,
+  "name": "Chocolate Cake",
+  "ingredients": [
+    "Flour",
+    "Sugar",
+    "Cocoa Powder",
+    "Baking Soda",
+    "Baking Powder",
+    "Salt",
+    "Eggs",
+    "Warm Water",
+    "Vegetable Oil",
+    "Vanilla Extract"
+  ],
+  "directions": [
+    "Preheat the oven to 350 degrees F. Mix all the ingredients together into one huge jumble. Shake well. Bake until it tastes good. Eat it."
+  ],
+  "img": "chocolateCakeImage"
+}

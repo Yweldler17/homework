@@ -1,0 +1,15 @@
+{
+  "id": 4,
+  "name": "Hot Dogs",
+  "ingredients": [
+    "Hot Dogs",
+    "Hot Dog Buns",
+    "Ketchup",
+    "Baked Beans",
+    "Fried Onions"
+  ],
+  "directions": [
+    "Grill hot Dogs. Put in Hot Dog bun (shockingly) along with other stuff. Eat. Repeat as needed."
+  ],
+  "img": "images/hotDog.jpg"
+}

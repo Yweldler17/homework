@@ -1,0 +1,16 @@
+{
+  "id": 3,
+  "name": "Scrambled Eggs",
+  "ingredients": [
+    "Eggs",
+    "Butter",
+    "Milk",
+    "Mozzarella Cheese",
+    "Salt",
+    "Fried Onions"
+  ],
+  "directions": [
+    "crack eggs. Mix with cheese and fried onions. Add salt and milk. Fry in pan. Stop frying when ready."
+  ],
+  "img": "images/scrambledEggs.jpg"
+}
