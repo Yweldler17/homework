@@ -1,0 +1,7 @@
+<h1>Order Number: {{order.id}}</h1>
+<app-person [person]="order.contact"></app-person>
+<app-address [address]="order.address"></app-address>
+<h3>Order Date: {{order.date}}</h3>
+<app-item [item]="order.item"></app-item>
+<p>Quantity Ordered: {{order.quantity}}</p>
+<p>Total Cost: ${{order.quantity * order.item.price}}.00</p>
