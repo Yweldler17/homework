@@ -1,0 +1,20 @@
+<div *ngIf="catalog.categories?.length">
+
+    <label for="category">Choose your category from the list:</label>
+    <input list="categories" name="categroy" #currentCategory>
+
+    <datalist id="categories">
+        <option *ngFor="let category of catalog.categories; let i = index">
+            <h1>{{category.categoryName}}</h1>
+        </option>
+    </datalist>
+    <button (click)="displayItems(currentCategory.value)">Details</button>
+    <div *ngIf="catalog.currentCategory; else elseBlock">
+        <app-category [category]="catalog.currentCategory"></app-category>
+    </div>
+    <ng-template #elseBlock>
+        <div>
+            <h1>Category Not Found</h1>
+        </div>
+    </ng-template>
+</div>
