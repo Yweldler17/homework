@@ -13,9 +13,13 @@ export class GetWeatherComponent {
 
   @Input()
   getWeather: GetWeather | undefined;
-  currentWeather!: object;
+  currentWeather!: {
+    city: '',
+    temp: '',
+    icon: ''
+  };
 
-  apiKey = 'Key_goes_here';
+  apiKey = '';
 
   currentZip = '';
 
