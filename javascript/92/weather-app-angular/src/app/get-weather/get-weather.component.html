@@ -1,0 +1,7 @@
+<div className="buttonWrapper">
+    <button (click)="getCurrentWeather()">Get Weather</button>
+    <input [(ngModel)]="currentZip" />
+    <div *ngIf="currentWeather">
+        <app-details [details]="currentWeather"></app-details>
+    </div>
+</div>
