@@ -62,6 +62,7 @@ data.forEach((puzzle) => {
     puzzleList.push(new Puzzle(puzzle.difficulty, puzzle.level, puzzle.cardImage, vehicleList));
 });
 
+
 function setUpBoard() {
     for (let i = 0; i < 6; i++) {
         for (let j = 0; j < 6; j++) {
@@ -219,7 +220,8 @@ next.on('click', () => {
 });
 
 function slideCard(direction) {
-    let newSpot = puzzleList.indexOf(currentPuzzle) + direction;
+    let currentSpot = puzzleList.indexOf(currentPuzzle);
+    let newSpot = currentSpot + direction;
     if (newSpot === puzzleList.length) {
         newSpot = 0;
     } else if (newSpot < 0) {
@@ -228,6 +230,5 @@ function slideCard(direction) {
     setUpPuzzle(puzzleList[newSpot]);
 }
 
-console.log(puzzleList);
 
 setUpBoard();

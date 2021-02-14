@@ -1,15 +1,9 @@
 import './css/index.css';
 import $ from 'jquery';
 
-
 const allUsers = $('#allUsers');
 const homeLink = $('#homeLink');
 const currentComments = $('#currentComments');
-const blogName = $('#blogName');
-const bogSite = $('#bogSite');
-const blogbusiness = $('#blogbusiness');
-const description = $('#description');
-const blogInfo = $('.blogInfo');
 
 let listOfUsers = [];
 

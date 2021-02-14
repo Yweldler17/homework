@@ -11,32 +11,43 @@
 
     let ants = [];
     let antHills = [];
+    let foodList = [];
     let antCount = 0;
+    let foodCounter = 0;
+    let isMessage = false;
 
     createAnts.click(() => {
         createAntHill(numberInput.val(), colorPicker.val());
     });
 
+    function setMessage(antHill, y, x) {
+        isMessage = true;
+        messageBox.css({
+            top: y,
+            left: x,
+        });
+        messageBoxText.text(`Colony Population: ${antHill.ants} Colony Color: ${antHill.color} Colony Strength: ${antHill.colonyStrength} Colony Energy: ${antHill.colonyEnergy} Colony Food: ${antHill.foodQuantity}`);
+        messageBoxText.css({
+            visibility: 'visible'
+        });
+    }
+
     canvas.addEventListener('mousemove', function (e) {
-        let clickedX = e.pageX;
-        let clickedY = e.pageY;
-        let messageY = clickedY - 40;
-        let messageX = clickedX - 10;
+        let mouseX = e.pageX;
+        let mouseY = e.pageY;
+        let messageY = mouseY - 40;
+        let messageX = mouseX - 10;
         for (let i = 0; i < antHills.length; i++) {
-            if (Math.abs(clickedY - antHills[i].y) < 20 && Math.abs(clickedX - antHills[i].x) < 20) {
-                messageBox.css({
-                    top: messageY,
-                    left: messageX,
-                });
-                messageBoxText.text(`Population: ${antHills[i].ants} Color: ${antHills[i].color} Strength: ${antHills[i].colonyStrength}`);
-                messageBoxText.css({
-                    visibility: 'visible'
-                });
-                break;
+            if (Math.abs(mouseY - antHills[i].y) < 15 && Math.abs(mouseX - antHills[i].x) < 15) {
+                if (!isMessage) {
+                    setMessage(antHills[i], messageY, messageX);
+                    break;
+                }
             } else {
                 messageBoxText.css({
                     visibility: 'hidden'
                 });
+                isMessage = false;
             }
 
         }
@@ -58,7 +69,9 @@
             this.context = context;
             this.rotationNumber = Math.PI / (Math.floor(Math.random() * 20) + 1);
             this.ants = 0;
+            this.foodQuantity = 50;
             this.colonyStrength = 0;
+            this.colonyEnergy = 0;
 
             this.draw();
         }
@@ -67,6 +80,27 @@
             this.context.fillStyle = this.color;
             this.context.beginPath();
             this.context.ellipse(this.x, this.y, 10, 15, this.rotationNumber, 0, 2 * Math.PI);
+            this.context.fill();
+        }
+    }
+
+    class AntFood {
+
+        constructor(coordinates, context) {
+            this.x = coordinates[0];
+            this.y = coordinates[1];
+            this.context = context;
+            this.color = 'green';
+            this.quantity = 200;
+            this.rotationNumber = Math.PI / (Math.floor(Math.random() * 20) + 1);
+
+            this.draw();
+        }
+
+        draw() {
+            this.context.fillStyle = this.color;
+            this.context.beginPath();
+            this.context.ellipse(this.x, this.y, 20, 5, this.rotationNumber, 0, 2 * Math.PI);
             this.context.fill();
         }
     }
@@ -86,9 +120,11 @@
             this.xDirection = 0;
             this.yDirection = 0;
             this.energy = 20;
-            this.maxEnergy = 200;
+            this.maxEnergy = 300;
             this.isInBattle = false;
             this.strength = 10;
+            this.hasFood = false;
+            this.food = 0;
 
             this.draw();
         }
@@ -123,13 +159,24 @@
         }
 
         checkEnergy() {
-            if (this.energy < 1) {
-                this.xDirection = Math.sign(this.home.x - this.x);
-                this.yDirection = Math.sign(this.home.y - this.y);
+            if (this.energy < 1 || this.hasFood) {
+                this.goToTarget(this.home);
             }
             if (this.x === this.home.x && this.y === this.home.y) {
                 this.energy = this.maxEnergy;
+                if (this.home.foodQuantity > 0) {
+                    this.home.foodQuantity--;
+                }
+                if (this.hasFood) {
+                    this.home.foodQuantity++;
+                    this.hasfood = false;
+                }
             }
+        }
+
+        goToTarget(target) {
+            this.xDirection = Math.sign(target.x - this.x);
+            this.yDirection = Math.sign(target.y - this.y);
         }
 
         setDirection() {
@@ -163,6 +210,15 @@
         }
     }
 
+    function checkForFood(ant) {
+        for (let i = 0; i < foodList.length; i++) {
+            if (Math.abs(ant.x - foodList[i].x) < 5 && Math.abs(ant.y - foodList[i].y) < 5) {
+                foundFood(ant, foodList[i]);
+                break;
+            }
+        }
+    }
+
     function checkForOtherAnts(ant) {
         for (let i = 0; i < ants.length; i++) {
             if (ant.color !== ants[i].color) {
@@ -172,6 +228,20 @@
                 }
             }
         }
+    }
+
+    function foundFood(ant, food) {
+        food.quantity--;
+        ant.hasFood = true;
+        ant.food = food;
+        // ants.forEach(otherAnt => {
+        //     if (ant.color === otherAnt.color) {
+        //         otherAnt.food = food;
+        //         if (!otherAnt.hasFood) {
+        //             otherAnt.goToTarget(food);
+        //         }
+        //     }
+        // });
     }
 
     function battle(antOne, antTwo) {
@@ -188,6 +258,7 @@
             winner = antTwo;
         }
         winner.strength += loser.strength;
+        winner.maxEnergy = winner.strength * 20;
         loser.home.ants--;
         newArray = ants.filter((ant) => {
             return ant.index !== loser.index;
@@ -196,16 +267,32 @@
         return newArray;
     }
 
+    function foodCheck() {
+        if (foodCounter-- < 1) {
+            foodList.push(new AntFood(getRandomSpots(), context));
+            foodCounter = 500;
+        }
+    }
+
     setInterval(() => {
         context.clearRect(0, 0, canvas.width, canvas.height);
+        if (antHills.length > 0) {
+            foodCheck();
+        }
+        foodList.forEach(food => {
+            food.draw();
+        });
         antHills.forEach(antHill => {
             antHill.colonyStrength = 0;
+            antHill.colonyEnergy = 0;
         });
         ants.forEach(ant => {
             ant.move();
             ant.home.draw();
             ant.home.colonyStrength += ant.strength;
+            ant.home.colonyEnergy += ant.energy;
             checkForOtherAnts(ant);
+            checkForFood(ant);
         });
     }, 100);
 

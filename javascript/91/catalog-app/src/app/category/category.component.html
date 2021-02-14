@@ -1,18 +1,8 @@
-<!-- <div *ngIf="person.friends?.length">
-    <h3>Friends:</h3>
-    <ul>
-      <li *ngFor="let friend of person.friends; let i = index">
-        {{friend}}<button (click)="deleteFriend(i)">delete</button>
-      </li>
-    </ul>
-  </div> -->
-
 <h1>{{category.categoryName}}:</h1>
 <div *ngIf="category.items?.length; else elseBlock">
     <h3>Items:</h3>
     <ul>
         <li *ngFor="let item of category.items; let i = index">
-            <!-- {{friend}}<button (click)="deleteFriend(i)">delete</button> -->
             <app-item [item]="item"></app-item>
         </li>
     </ul>

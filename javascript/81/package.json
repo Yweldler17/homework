@@ -6,6 +6,8 @@
   "main": "webpack.config.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "watch": "webpack --watch",
+    "start": "webpack serve --progress --open Chrome.exe",
     "build": "webpack --progress"
   },
   "keywords": [],

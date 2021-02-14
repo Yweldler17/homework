@@ -11,6 +11,8 @@ export class CatalogComponent {
   @Input()
   catalog!: Catalog;
 
+  selectedCat = null;
+
   displayItems(item: string) {
     let foundItem = false;
     for (let i = 0; i < this.catalog.categories.length; i++) {

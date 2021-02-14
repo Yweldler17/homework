@@ -1,6 +1,6 @@
 const http = require('http');
 
-http.get('http://jsonplaceholder.typicode.com/todos/1', (res) => {
+http.get(process.argv[2], (res) => {
 
     res.on('data', (data) => {
         console.log(data.toString());

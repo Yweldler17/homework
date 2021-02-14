@@ -11,6 +11,7 @@
     let currentTrack = 0;
     let itemNum = 0;
     let savedItems = [];
+    let nextIndex = 0;
 
     const doc = $(document);
     const body = $(document.body);
@@ -60,6 +61,12 @@
         music.play();
     });
 
+    body.on('dblclick', '.using', e => {
+        let deleteItem = $(e.target);
+        removeFromLocalStorage(deleteItem);
+        deleteItem.remove();
+    });
+
     partsList.on('mousedown', 'li', e => {
         offset = { x: e.offsetX, y: e.offsetY };
         imageChoice = $(e.target);
@@ -72,16 +79,11 @@
         selectedItem.attr('class', 'using');
     });
 
-    body.on('dblclick', '.using', e => {
-        let deleteItem = $(e.target);
-        removeFromLocalStorage(deleteItem);
-        deleteItem.remove();
-    });
 
     body.on('mousedown', '.using', e => {
         offset = { x: e.offsetX, y: e.offsetY };
         selectedItem = $(e.target);
-        selectedItem.css({ cursor: 'grabbing' });
+        selectedItem.css({ cursor: 'grabbing', zIndex: ++nextIndex });
     });
 
     doc.mousemove(e => {
@@ -89,9 +91,10 @@
             e.preventDefault();
             selectedItem.css({ top: e.pageY - offset.y, left: e.pageX - offset.x });
         }
-    }).mouseup(e => {
+    }).mouseup(() => {
         if (selectedItem) {
             selectedItem.css({ cursor: 'grab' });
+            console.log(!selectedItem.data('itemIndex'));
             if (!selectedItem.data('itemIndex')) {
                 selectedItem.data('itemIndex', ++itemNum);
             }
@@ -99,6 +102,10 @@
                 item: selectedItem[0].outerHTML,
                 itemIndex: selectedItem.data('itemIndex')
             };
+            let searchByIndex = savedItems.find(item => {
+                return item.itemIndex === selectedItem.data('itemIndex');
+            });
+            console.log('searchResult', searchByIndex);
             if (savedItems[selectedItem.data('itemIndex') - 1]) {
                 savedItems[selectedItem.data('itemIndex') - 1] = newPosition;
             } else {
@@ -112,17 +119,29 @@
     if (localStorage.items) {
         const savedParts = JSON.parse(localStorage.items);
         savedParts.forEach(part => {
-            const theSavedImg = $(`${part.item}`);
-            theSavedImg.data('itemIndex', ++itemNum);
-            savedItems.push(part);
+            let theSavedImg = $(`${part.item}`);
+            let imgObject = {
+                item: theSavedImg[0].outerHTML,
+                itemIndex: ++itemNum
+            };
+            theSavedImg.data('itemIndex', itemNum);
+            savedItems.push(imgObject);
             body.append(theSavedImg);
         });
         localStorage.items = JSON.stringify(savedItems);
     }
 
     function removeFromLocalStorage(item) {
-        savedItems.splice((item.data('itemIndex') - 1), 1);
+        console.log('working');
+        let indexSpot = item.data('itemIndex') - 1;
+        savedItems.splice((indexSpot), 1);
+        console.log(indexSpot);
+        for (let i = indexSpot + 1; i < savedItems.length; i++) {
+            console.log(savedItems[i].itemIndex);
+            savedItems[i].itemIndex = savedItems[i].itemIndex - 1;
+        }
         localStorage.items = JSON.stringify(savedItems);
+        indexSpot = 0;
     }
 
 }());

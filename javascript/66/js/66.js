@@ -29,13 +29,12 @@
         let name = recipe.name;
         let img = recipe.img;
         let ingredientsArray = recipe.ingredients;
-        let ingredientsInfo;
         recipeName.text(name);
         recipeImg.attr("src", img);
         for (let i = 0; i < ingredientsArray.length; i++) {
             addIngredient(ingredientsArray[i]);
         }
-        ingredientsList.text(ingredientsInfo);
+        ingredientsList.text();
     }
 
     function addIngredient(ingredient) {

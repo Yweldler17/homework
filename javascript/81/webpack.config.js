@@ -8,7 +8,7 @@ const CopyPlugin = require("copy-webpack-plugin");
 module.exports = {
     entry: './src/index.js',
     plugins: [
-        new CleanWebpackPlugin(),
+        new CleanWebpackPlugin({ cleanStaleWebpackAssets: false }),
         new HtmlWebpackPlugin({
             title: 'Rush Hour',
             template: './src/index.html'
@@ -26,6 +26,9 @@ module.exports = {
         publicPath: ''
     },
     devtool: 'inline-source-map',
+    devServer: {
+        contentBase: './dist',
+    },
     module: {
         rules: [
             {

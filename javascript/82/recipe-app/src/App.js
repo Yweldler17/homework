@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import chocolateCakeImage from './images/chocolateCake.jpg';
 
 import './App.css';
@@ -78,7 +77,7 @@ class App extends Component {
         <header>
           <h1>Recipe List</h1>
         </header>
-        { this.state.recipes.map((recipe) => <Recipe recipe={recipe} key={recipe.id} />)}
+        { this.state.recipes.map(recipe => <Recipe recipe={recipe} key={recipe.id} />)}
         <div className="ingrendientsDiv">
           <h2 className="currentRecipe">{this.state.recipes[0].name}</h2>
           <img src={this.state.recipes[0].img} alt={this.state.recipes[0].name}></img>

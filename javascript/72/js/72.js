@@ -97,7 +97,6 @@
         imageBox.css({ top: `72%` });
         clearInterval(moving);
         moving = 0;
-        console.log(moving);
         vehicleType = vehicleSelected.find(':selected').val();
         if (vehicleType === 'car') {
             newCar = new Vehicle(colorElem.val());
