@@ -1,0 +1,29 @@
+table {
+  margin: auto;
+  margin-top: 2em;
+  width: 50%;
+  border-collapse: collapse;
+  text-align: center;
+  color: black;
+  background-color: white;
+  font-size: 1.2em;
+}
+
+thead td {
+    font-weight: bolder;
+    border: 2px solid black;
+}
+
+th, td {
+  height: 2em;
+  border: 1px solid black;
+}
+
+tr:hover {
+  background-color: lightblue;
+}
+
+tr .btnDiv {
+  margin-bottom: 10px;
+  display: inline-block;
+}

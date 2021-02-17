@@ -1,0 +1,53 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html, body{
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: "Times New Roman", Times, serif;
+}
+
+header {
+  background-color: rgb(76, 71, 71);
+  width: 100%;
+  height: 5em;
+  text-align: center;
+  box-sizing: border-box;
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  justify-items: center;
+  border-bottom: 2px solid rgb(60, 168, 168);
+}
+
+header h1 {
+  color: rgb(60, 168, 168);
+  font-size: 4em;
+}
+
+.btnDiv {
+  text-align: center;
+  align-self: center;  
+  width: 10em; 
+}
+
+.btn {
+  padding: 10px;
+  text-decoration: none;
+  width: 100%;
+  height: 30px;
+  cursor: pointer;
+  background-color: rgb(60, 168, 168);
+  border: 1px solid black;
+}
+
+#wrapper {
+  margin-top: 20px;
+  text-align: center;
+  align-self: center;  
+
+}
+
