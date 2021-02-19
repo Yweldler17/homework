@@ -41,6 +41,7 @@ header h1 {
   height: 30px;
   cursor: pointer;
   background-color: rgb(60, 168, 168);
+  border: 1px solid black;
 }
 
 #wrapper {

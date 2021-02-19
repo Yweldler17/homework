@@ -16,6 +16,9 @@
       <th>
 
       </th>
+      <th>
+
+      </th>
     </tr>
   </thead>
   <tbody>
@@ -30,6 +33,11 @@
       <td>{{last}}</td>
       <td>{{email}}</td>
       <td>{{phone}}</td>
+      <td>
+        <div class="btnDiv">
+          <a href="/contacts/editContact">Edit contact</a>
+        </div>
+      </td>
       <td>
         <form id="deleteForm" method="POST">
           <div class="buttons">
