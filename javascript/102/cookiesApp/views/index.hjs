@@ -1,0 +1,12 @@
+<h3>Please log in or create a username</h3>
+<form id="userInfo" method="POST">
+  <div class="formGroup">
+    <label for="userName">Username:</label>
+    <input id="userName" name="userName">
+  </div>
+  <div class="formGroup">
+    <label for="password">Password:</label>
+    <input id="password" name="password" required>
+  </div>
+  <button>Submit</button>
+</form>
