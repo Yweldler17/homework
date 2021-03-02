@@ -1,0 +1,40 @@
+<h2>View Cart</h2>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>name</th>
+            <th>description</th>
+            <th>price</th>
+            <th>count</th>
+            <th>subtotal</th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#noItems}}
+        <tr>
+            <td colspan="5">
+                Your cart is empty. Please add some <a href="/">purchases</a> to your cart
+            </td>
+        </tr>
+        {{/noItems}}
+
+        {{#items}}
+        <tr>
+            <td>{{item.name}}</td>
+            <td>{{item.description}}</td>
+            <td>{{item.price}}</td>
+            <td>{{count}}</td>
+            <td>{{subtotal}}</td>
+        </tr>
+        {{/items}}
+    </tbody>
+    {{^noItems}}
+    <tfoot>
+        <tr>
+            <td colspan="4">total</td>
+            <td>{{total}}</td>
+        </tr>
+    </tfoot>
+    {{/noItems}}
+</table>
