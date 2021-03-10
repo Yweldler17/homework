@@ -1,0 +1,17 @@
+<link href="/css/posts.css" rel="stylesheet">
+
+<div id="posts">
+  {{>posts}}
+</div>
+
+<div id="addcomment">
+  <textarea id="commentbody"></textarea>
+  <button id="add">add</button>
+  <button id="cancel">cancel</button>
+</div>
+
+<button id="loadmore">load more</button>
+<script>
+  var blog = blog || {};
+  blog.numPosts = {{ numPosts }};
+</script>
